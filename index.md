@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-
+  
 <head>
-  <title>HTML Reference</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <a href="#">ECE 5725 AGRICULTURE DRONE PROJECT </a> 
+  <link rel="stylesheet" type="text/css" href="css/menu.css">
 </head>
+
 <body>
   <nav>
     <ul class="fade-menu">
