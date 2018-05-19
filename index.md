@@ -73,6 +73,9 @@
           <div class="col-md-4" style="text-align:center;">
           <img class="img-rounded" src="pics/1.jpg" alt="Generic placeholder image" width="240" height="240">
           </div>
+          
+          <br>
+          
           <div class="col-md-8" style="font-size:18px;">
           <h2>Project Objective:</h2>
           <ul>
