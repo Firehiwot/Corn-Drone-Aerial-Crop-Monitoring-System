@@ -1,1 +1,576 @@
+<!DOCTYPE html>
 
+<html>
+
+<!-- sr949, dc652, kat86 Project 2 -->
+
+<head>
+
+    <meta charset="utf-8">
+    <!-- Weather icons from http://www.freepik.com and https://www.amcharts.com/free-animated-svg-weather-icons/ -->
+    <title>ECE 4760 Final Project</title>
+
+    <link type="text/css" rel="stylesheet" href="https://fast.fonts.net/cssapi/c1ece602-4b8f-4767-a71f-aa828be38869.css" />
+
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
+
+    <style>
+        body {
+            font-family: "LinotypeUniversW01-Cn";
+            padding: 10px 0;
+            background-color: "white";
+        }
+        
+        h1 {
+            font-family: "LinotypeUniversW01-Cn";
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 35pt;
+            padding: 0;
+            margin: 0;
+            padding-top: 10px;
+            line-height: 1.2em;
+            text-align: center;
+        }
+        
+        .center {
+            margin: auto;
+            width: 75%;
+            padding: 10px;
+            text-align: left;
+            padding-bottom: 20px;
+        }
+        
+        .caption {
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .equation {
+            text-align: center;
+        }
+        
+        .figure {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        
+        h2 {
+            text-align: left;
+            padding-top: 10px;
+            font-weight: 900;
+        }
+        
+        h3 {
+            font-family: "LinotypeUniversW01-Cn";
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 25pt;
+        }
+        
+        p {
+            font-size: 15pt;
+        }
+        
+        #highlight {
+            color: #89cff0;
+            font-weight: 600;
+        }
+        
+        div.circle {
+            width: 40px;
+            height: 40px;
+            border: solid #585858 2px;
+            border-radius: 30px;
+            color: #585858;
+            text-align: center;
+            font-size: 32px;
+            margin: 23px 20px 0 0;
+            float: left;
+            font-weight: bold;
+        }
+        
+        div.circleText {
+            padding-top: 3px;
+        }
+        
+        input {
+            padding: 3px;
+            font-size: 12pt;
+        }
+        
+        button:hover {
+            background-color: #848484;
+            color: white;
+        }
+        
+        #label {
+            padding-left: 30px;
+        }
+        
+        .container {
+            width: 1300px;
+            display: flex;
+            padding-left: 50px;
+            padding-bottom: 10px;
+        }
+        
+        .left {
+            width: 300px;
+            height: auto;
+            float: left;
+        }
+        
+        .right {
+            width: 900px;
+            float: left;
+            height: auto;
+            padding-top: 25px;
+            font-size: 15pt;
+        }
+        
+        image {
+            border: solid red 1px;
+        }
+        
+        .states {
+            fill: none;
+            stroke: #fff;
+            stroke-linejoin: round;
+        }
+        
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            text-align: center;
+            margin: 0px auto;
+        }
+        
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+        
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>Rahul</h1>
+
+    <h2 style="text-align: center">By: Sebastian Roubert, Jonah Okike-Hephzibah, Rahul Desai</h2>
+
+    <p style="padding: 0 25px">As of 2017, there are <span id="highlight">1,000,000 annual cases of work-related musculoskeletal injuries in the United States</span> with over <span id="highlight">$54 billion total associated cost</span>. <a href="http://orthofit.tech">OrthoFit, Inc.</a> is a local Ithaca startup that aims to "make workplaces safer by preventing musculoskeletal injuries and improving ergonomics evaluations, with [their] smart wearables and software solutions". We decided to use our final project to develop a smart wearable prototype as part of a greater internet of things project.</p>
+
+
+    <!-- Introduction -->
+
+    <div class="center" style="padding: 0 25px; padding-top: 10px; margin-top: -10px">
+        <h3>Introduction</h3>
+        <p style="margin-top: -20px">Even though with the increase in automation in every field, man power still remains the most preferable choice as humans are able to adapt to any situation and increase their productivity by learning from their faults. Right from handling a jackhammer or physically plowing a field, labor work is opted because it can be regulated and improved over time. But with such strenuous tasks there are severe health risks involved which need to be monitored. Even a slight damage to the bone or any muscle could result in loss of functionality of the hand which could render the user helpless and thus it is crucial to keep a check on the user’s health for such matters. The Real Time Force Visualization aims at keeping a track of the user's health and gives a visualized pressure mapping of the impending stress on the hand.</p>
+    </div>
+
+    <!-- Hardwave and Software Design -->
+    <div class="center" style="padding: 0 25px; padding-top: 10px; margin-top: -10px">
+        <h3>High Level Design</h3>
+
+        <img class="figure" src="highLevelFlowchart.png">
+
+        <p class="caption">Figure 1: Flowchart of our project's design.</p>
+
+        <h2>Hardware</h2>
+        <p style="margin-top: -20px">Initial testing of the hardware began with identifying how the force sensitive resistors (FSR) work. There were two methods that we explored to power the FSR's. The first was to put the FSR in series with the on board power supply of the PIC32. The other end of the FSR was connected to a pull down resistor of 10 k&Omega; then to ground. A pin which was directly connected to the ADC was placed in parallel with the 10 k&Omega; resistor. This configuration would allow for us to measure the resistance of the FSR by measuring the voltage across the 10 k&Omega; resistor and solving the following back calculation:
+        </p>
+
+        <p class="equation">$$ V = I(R_{FSR} + R_{10k}) $$</p>
+
+        <p>were V = 3.3V and I is equal to the voltage drop across the 10 k&Omega; resistor divided by the resistance (this voltage is read from the ADC). Solving for the FSR resistance yields the following equation:</p>
+
+        <p class="equation">$$ R_{FSR} = \frac{(5-V_{10k})R_{10k}}{V_{10k}} $$</p>
+
+
+        <p>This method worked well and was able to accurately read resistance values between 10 k&Omega; to 100 k&Omega;. Theoretically, the FSR should have been able to measure 0 resistance, however, the ADC saturated around 10 k&Omega;. This seemed to be fine for our purposes since, according to <a href="http://www.sensitronics.com/products-1-inch-shunt-mode-fsr.php">the force vs pressure curves provided by the FSR manufacturer</a>, the maximum force that the sensors could accurately measure corresponded to a resistance around 20 k&Omega;.</p>
+
+        <p>The second method that we explored made use of the Charge Time Measurement Unit (CTMU) which is internal to the PIC32. The circuitry for this method was not as complicated as the voltage divider. Since the CTMU supplied the current through the ADC, the FSR only needed to be connected to the ADC in one end and grounded on the other. The CTMU has 4 current settings that it can supply, each producing different resolutions of resistance. These values are as follows:</p>
+
+        <table class="tg">
+            <tr>
+                <th class="tg-031e"></th>
+                <th class="tg-031e">550 uA</th>
+                <th class="tg-031e">0.55 uA</th>
+                <th class="tg-031e">5.5 uA</th>
+                <th class="tg-031e">55 uA</th>
+            </tr>
+            <tr>
+                <td class="tg-031e">Min (kOhm)</td>
+                <td class="tg-031e">0</td>
+                <td class="tg-031e">0</td>
+                <td class="tg-031e">0</td>
+                <td class="tg-031e">0</td>
+            </tr>
+            <tr>
+                <td class="tg-031e">Max (kOhm)</td>
+                <td class="tg-031e">6</td>
+                <td class="tg-031e">6000</td>
+                <td class="tg-031e">600</td>
+                <td class="tg-031e">60</td>
+            </tr>
+        </table>
+        <p class="caption">Table ??: The theoretical minimum and maximum resistance values that can be read for each supplied current are tabulated above.</p>
+
+        <p>We then tested both methods using the mux so that we could connect multiple sensors via one ADC channel. The mux had 8 different channel input/outputs which needed to be selected by toggling 3 channel select bits (A,B, and C). By connecting the ABC pins of the mux to the PIC32, we were able to toggle the channel that was directly connected to the communication pin of the mux.Thus, for the CTMU method, the current would flow through the COM pin into the selected channel which is connected to the FSR. For the voltage divider method, the direct ADC input was replaced with a connection to one of the mux channel inputs. Due to internal resistance in the mux, we found that the resistance values we were reading without the mux had changed. This meant that we had to re-characterize the readings for both methods.</p>
+
+        <img class="figure" src="muxSchematic.jpeg">
+        <p class="caption">Figure ??: Schematic of the MUX we used.</p>
+
+        <p>To re-characterize the resistance scale for the mux, we took resistors of known value and recorded the corresponding ADC value. However, we did not want to do this for both methods and decided to cut one out. Since the circuitry of the voltage divider was a little more complicated, and we were able to achieve a wider range of resistance with the CTMU, we decided to proceed with the CTMU method to power the FSRs.</p>
+
+        <p>To characterize the new CTMU resistance we placed resistors of known resistance into the mux channels. We did this for all four current options which produced the following resistance vs ADC curves:</p>
+
+        <img class="figure" src="adc550.jpeg">
+        <p class="caption">Figure ??: Resistance versus ADC values curves for 550 microamps through the MUX.</p>
+
+        <img class="figure" src="adc-55.jpeg">
+        <p class="caption">Figure ??: Resistance versus ADC values curves for 0.55 microamps through the MUX.</p>
+
+        <img class="figure" src="adc5-5.jpeg">
+        <p class="caption">Figure ??: Resistance versus ADC values curves for 5.5 microamps through the MUX.</p>
+
+        <img class="figure" src="adc55.jpeg">
+        <p class="caption">Figure ??: Resistance versus ADC values curves for 55 microamps through the MUX.</p>
+
+
+
+
+        <p>We determined that we would not be able to use the 0.55 microamp CTMU supply to power these resistors. As shown in the 0.55 microamp supplied curve, the ADC saturated around 200 ADC units. This meant that we were not able to get accurate readings using this current. Thus, we decided to only use the remaining current levels.</p>
+
+        <p>This lead directly into the design of the PCB schematic that would serve as the gloves circuitry. Thus, we moved on from the original FSRs provided by Adafruit to adhesive FSRs specifically made for the PCB.</p>
+
+        <img class="figure" src="eagleCadPCB.png">
+        <p class="caption">Figure ??: Eagle CAD of the PCB is shown above. Note how each sensor will be in series with a power rail and ground rail.</p>
+
+        <p>The purpose of this PCB was to serve as the primary interface for the pressure sensors on the glove. These sensors were wired directly into the muxes input/output channels of the mux (7 sensors on each mux)</p>
+
+        <p>To setup the HC-06 for bluetooth communication, we made use of the UART pins on the PIC32 (Rx: RA1, Tx: RB10). We first determined whether the UART transmissions actually worked using a serial cable. Once we determined that this was functioning correctly, we moved onto setting up the bluetooth module. The connection for this was a little different from the serial cable connection. The transmit (Tx) pin for the module was connected to RA1 and the receive (Rx) pin to the RB10. </p>
+
+
+        <h2>Software</h2>
+
+        <h2 style="text-decoration: underline">Data Processing and Communication</h2>
+
+        <h2 style="text-decoration: underline">Data Reception and Json Packing</h2>
+
+        <p>To receive the data that is sent from the PIC32, a python script was created that would connect to the HC-06 bluetooth module using the modules mac address. We made use of the bluetooth library to make a binding connection between the computer and the bluetooth module. Once the connection is established, the script waits until it receives data sent from the PIC32. The python script would periodically (every 20ms) receive the transmitted sensor data until it reads an end of line character. This signified the end of the transmission. From this point, the python script would format the data so that it could be put into a Json file. This consisted of splitting the data since upon completion of transmission, it was one long string. Once the data was split, the Python script began to form the JSON file. To accomplish this, we made use of the JSON library in python. This is done by formatting the data in the following format:</p>
+
+        <p style="margin: 0 auto">
+            {
+            <br>"sensorData":[
+            <br>{"Sensor": "Sensor1", "R": 713586},
+            <br> {"Sensor": "Sensor2", "R": 712373},
+            <br> {"Sensor": "Sensor3", "R": 709953},
+            <br> {"Sensor": "Sensor4", "R": 712373},
+            <br> {"Sensor": "Sensor5", "R": 713586},
+            <br> {"Sensor": "Sensor6", "R": 713586},
+            <br> {"Sensor": "Sensor7", "R": 713586},
+            <br> {"Sensor": "Sensor8", "R": 711162},
+            <br> {"Sensor": "Sensor9", "R": 712373},
+            <br> {"Sensor": "Sensor10", "R": 713586},
+            <br> {"Sensor": "Sensor11", "R": 705137},
+            <br> {"Sensor": "Sensor12", "R": 712373},
+            <br> {"Sensor": "Sensor13", "R": 713586},
+            <br> {"Sensor": "Sensor14", "R": 713586}
+            <br>]}
+
+        </p>
+
+        <p>The formatting of the JSON above allowed for scalability of the product, as JSON is the natural data format for web applications and easily stored on servers. We could add an unlimited amount of sensor IDs with associated resistance readings. The Python script then updated the JSON file every 20ms.</p>
+
+        <h2 style="text-decoration: underline">Data Visualization</h2>
+
+
+
+        <p>The data visualization was implemented via a web application that utilized the D3 (Data-Driven Documents) Javascript library inside of a index.html file. The application had OrthoFit Inc.'s hand logo with circles mapped to the locations of the pressure sensors. The circles colors varied as follows: 1) green to yellow for low to middle pressure, and 2) yellow to red for middle to high pressure.</p>
+
+
+        <img class="figure" src="sensorResVsPres.PNG">
+        <p class="caption">Figure ??: Resistance versus pressure for our specially made, highly calibrated force sensitive resistors.</p>
+
+        <p>As seen in the image above, pressure varies logarithmically with resistance. Once the resistance data is dumped into the JSON file by the Python script, we use Javascript to extract the data. We then utilized the D3.js's scaling functionality to map resistance to pressure. Specifically, we used linear scaling for logarithmic resistance inputs. See below:</p>
+
+        <p>//creating scales mapping resistance to colors
+            <br> var resistanceToColorHands = d3.scaleLinear()
+            <br> .domain([Math.log(200000), Math.log(10000), Math.log(3000)])
+            <br> .range(["#32cd32", "yellow", "red"])</p>
+
+        <p>This allowed a linear relationship between a user's pressure input to the circle color output on the screen. The 200000, 10000, and 3000 seen above were resistance values that we experimentally found to map to low grip, middle grip, and high grip, respectively.</p>
+
+        <p>To ensure that there was no jumpiness in circles we utilized D3.js's transition functionality. See below:</p>
+
+        <div style="margin: 0 auto">
+            <p>selectedCircle
+                <br> .transition() //this allows smooth transitions between colors
+                <br> .style("fill", function (d) {...
+            </p>
+
+        </div>
+
+        <p>This ensured that whenever colors were changing, there was a smooth gradient transition.</p>
+
+        <p>We also utilized a freezing functionality. The user could toggle between real time visualization of freezing the pressure mapping at any time, for any mapping of their choosing. This will allow OrthoFit's clients to view data about their clients for any given time point. This was done by the following:</p>
+
+        <p>
+
+            //creating a case for button click event
+            <br> button.on("click", function (d) {
+            <br>
+            <br> if (freeze == 0) {
+            <br> freeze = 1;
+            <br> d3.select(this).text("Freeze Vis")
+            <br>
+            <br> } else {
+            <br> freeze = 0;
+            <br> d3.select(this).text("Real Time")
+            <br> }
+            <br> })
+            <br>
+
+        </p>
+
+        <p>This entire web application system was updated every 100ms with the following function:</p>
+
+        <p>
+            //calling updateData() every 100 ms
+            <br> var inter = setInterval(function () {
+            <br>
+            <br> if (freeze != 0) {
+            <br> updateData();
+            <br> }
+            <br> }, 100);
+            <br>
+
+        </p>
+
+
+    </div>
+
+    <!-- Results -->
+    <div class="center" style="padding: 0 25px; padding-top: 10px; margin-top: -10px">
+        <h3>Results</h3>
+
+        <img src="htmlVis1.jpeg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="htmlVis2.jpeg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="htmlVis3.jpeg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+        <p style="clear: both;">
+
+            <p class="caption">Figure ??: Pressure mappings of the hand at different times are shown above.</p>
+
+    </div>
+
+    <!-- Conclusion -->
+    <div class="center" style="padding: 0 25px; padding-top: 10px; margin-top: -10px">
+        <h3>Conclusion</h3>
+        <p style="margin-top: -20px">We were successful in implementing the Real Time Force Visualization by mapping the impending pressure on the web app. All the user needs to do is to wear the glove while performing arduous tasks and the glove will show how much stress is applied on the hand. The glove has 14 FSR which are finely calibrated and are used to get the resistance values corresponding to the pressure applied on that specific part of the hand. The resistance values are measured using the CTMU approach, which get converted into digital by the ADC and are then processed by the controller. These values are sent to the PC using the HC-06 Bluetooth module using a python script, which simultaneously hosts a local server to store the files in a text file. These files are converted into a JSON file, which is then used by the HTML file to visualize the pressure mappings of each sensor on the hand. A 'Freeze mode' was implemented to track the pressure mappings at any given time to check for any abnormalities with the 'Real Time' mode mapping the hand pressure readings continuously.</p>
+
+        <p>The initial idea had matrix array based Force sensitive pad in mind but due to the ghosting problem, it was decided to switch to the Force Sensitive Resistors as they were discrete and could be accessed independently. There were problems in multiplexing the sensor signals in the initial interfacing stage, which was later found to be a grounding problem. The hardware had to be organized and labelled to keep track of all the sensor channels for debugging purposes. As the PCB was pliable, care had to be taken while soldering the wires to it, as it could easily lead to discontinuities. We were not able to transition to the glove as there was probably some problem with the soldering and also the glove itself was too small to fit the hand but the prototype PCB with headers attached to it worked very well. </p>
+
+        <p>
+            Further improvements could be made by separating out the PCB on the palm region and the fingers as during a bend, it was observed that the PCB would get crumpled which might affect the wire tracing on it. These parts can be joined by a conductive thread to get better flexibility. Additional flex sensors could be used on the back of the hand to measure the bend of the fingers to get an overall idea of the stress impending on the hand.
+        </p>
+    </div>
+
+    <!-- Standards -->
+    <div class="center" style="padding: 0 25px; padding-top: 10px; margin-top: -10px">
+        <h3>Standards</h3>
+        <p style="margin-top: -20px">The HC-06 Bluetooth module follows 2.0+ EDR standards and operates on 2.4 GHz ISM frequency band. The project conforms to the USB v1.1/2.0 and SIG protocols. The web application side of the project makes use of the W3C standards for HTML.</p>
+    </div>
+
+
+
+    <!-- Appendix -->
+    <div class="center" style="padding: 0 25px; padding-top: 10px; margin-top: -10px">
+        <h3>Appendix</h3>
+
+        <h2>A: Website Inclusion</h2>
+        <p style="margin-top: -20px">
+            The group does not approve this report for inclusion on the course website.
+            <br> The group does not approve the video for inclusion on the course youtube channel.
+        </p>
+
+        <h2>B: Schematics</h2>
+        <img class="figure" src="schematic.png">
+
+        <p class="caption">Figure ??: Pinout schematic of microcontroller component of system.</p>
+
+        <h2>C: Code</h2>
+
+        <a href="finalCode.c">Final C Code</a>
+        <br>
+        <a href="clientFor15.py">Python Script</a>
+        <br>
+        <a href="index%202.html">Data Visualization Web Application (view page source for html file)</a>
+        <br>
+        <h2>D: Cost</h2>
+
+        <table class="tg">
+            <tr>
+                <th class="tg-yw4l">Parts</th>
+                <th class="tg-yw4l">Unit Price</th>
+                <th class="tg-yw4l">Quantity</th>
+                <th class="tg-yw4l">Cost</th>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">PIC32MX250</td>
+                <td class="tg-yw4l">$5.00</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$5.00</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">HC-06 Bluetooth module</td>
+                <td class="tg-yw4l">$8.99</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$8.99</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">CD4051B Mux</td>
+                <td class="tg-yw4l">$0.48</td>
+                <td class="tg-yw4l">2</td>
+                <td class="tg-yw4l">$0.96</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">FSRs</td>
+                <td class="tg-yw4l">$6.30</td>
+                <td class="tg-yw4l">5</td>
+                <td class="tg-yw4l">$31.5</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">MicroStickII</td>
+                <td class="tg-yw4l">$10.00</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$10.00</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">Small Board</td>
+                <td class="tg-yw4l">$4.00</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$4.00</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">Solder Board</td>
+                <td class="tg-yw4l">$2.50</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$2.50</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l"></td>
+                <td class="tg-yw4l"></td>
+                <td class="tg-yw4l">Total</td>
+                <td class="tg-yw4l">$62.95</td>
+            </tr>
+        </table>
+
+        <p class="caption">Table ??: Costs throughout prototyping.</p>
+
+        <table class="tg">
+            <tr>
+                <th class="tg-yw4l">Parts</th>
+                <th class="tg-yw4l">Unit Price</th>
+                <th class="tg-yw4l">Quantity</th>
+                <th class="tg-yw4l">Cost</th>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">PIC32MX250</td>
+                <td class="tg-yw4l">$5.00</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$5.00</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">HC-06 Bluetooth module</td>
+                <td class="tg-yw4l">$8.99</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$8.99</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">CD4051B Mux</td>
+                <td class="tg-yw4l">$0.48</td>
+                <td class="tg-yw4l">2</td>
+                <td class="tg-yw4l">$0.96</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">PCB</td>
+                <td class="tg-yw4l">$38.16</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$38.16</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">MicroStickII</td>
+                <td class="tg-yw4l">$10.00</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$10.00</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">Small Board</td>
+                <td class="tg-yw4l">$4.00</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$4.00</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">Solder Board</td>
+                <td class="tg-yw4l">$2.50</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$2.50</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">Glove</td>
+                <td class="tg-yw4l">$5.00</td>
+                <td class="tg-yw4l">1</td>
+                <td class="tg-yw4l">$5.00</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l"></td>
+                <td class="tg-yw4l"></td>
+                <td class="tg-yw4l">Total</td>
+                <td class="tg-yw4l">$74.61</td>
+            </tr>
+        </table>
+
+        <p class="caption">Table ??: Cost of final prototype.</p>
+
+        <h2>E: Work Distribution</h2>
+
+        <h2>F: References</h2>
+
+        <p>1. <a href="https://www.adafruit.com/product/166">Force Sensitive Resistors</a>
+            <br> 2. <a href="http://www.ti.com/lit/ds/symlink/cd4051b.pdf">MUX Datasheet</a>
+            <br> 3. <a href="http://people.ece.cornell.edu/land/courses/ece4760/PIC32/index_CTMU.html">Bruce Land: Charge Time Measurement Unit (CTMU)</a>
+            <br> 4. <a href="http://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/f2015/wj225_hj424_lw569/wj225_hj424_lw569/wj225_hj424_lw569/index.html">Touch Piano</a>
+        </p>
+
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
