@@ -50,7 +50,7 @@
     <div class="container">
       <hr>
       <div class="center-block">
-      <img src="img/enableserialhardware.png" alt="System block diagram">                    
+      <img src="img/enableserialhardware.png" alt="Enable serial hardware">                    
       <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
