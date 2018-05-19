@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <a href="#">ECE 5725 AGRICULTURE DRONE PROJECT </a> 
+   ECE 5725 AGRICULTURE DRONE PROJECT
   <link rel="stylesheet" type="text/css" href="css/menu.css">
 </head>
 
