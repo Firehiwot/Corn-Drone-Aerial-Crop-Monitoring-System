@@ -34,7 +34,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="starter-template">
-          <h1>ECE 5725 Agriculture Drone Project</h1>
+          <h1>Corn Drone - Aerial Crop Monitoring System </h1>
           <p class="lead">Sun Lab <br>A Project By Jane Doe.</p>
         </div>
             <li class="active"><a href="#">Home</a></li>
@@ -50,10 +50,7 @@
     <div class="container">
       <hr>
       <div class="center-block">
-      <img src="img/enableserialhardware.png" alt="Enable serial hardware">   
-      <iframe width="420" height="315"
-      src="https://www.youtube.com/watch?v=liCTpQmD1XQ&feature=youtu.be">
-      </iframe> 
+      <img src="img/enableserialhardware.png" alt="Enable serial hardware">                    
       <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
@@ -61,7 +58,7 @@
 
       <div style="text-align:center;">
               <h2>Introduction</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum change nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <p style="text-align: left;padding: 0px 30px;">Quick and reliable detection of plant performance is one extremely crucial tool for agriculturists and researchers of plant sciences. In most cases this requires manual investigation of the crop by physically checking each plant making the process long, cumbersome and prone to human error. This is especially difficult when tall crops like corn are grown in large fields. Optimization of this process would allow farmers to be more aware of the crop quality and be able to implement changes more promptly increasing economic yield and reducing wastage of resources. Researchers have found that when a particular plant is struggling it reflects wavelengths from across the spectrum which are different from their thriving counterparts. Dynamic monitoring of these differences will help obtain plant distress signals. By using a spectrometer coupled with a drone, communicating with the help of a raspberry Pi we present a method of aerial data collection for faster, accurate and large scale detection of plant distress and enhance plant monitoring.</p>
       </div>
 
     <hr id='obj'>
