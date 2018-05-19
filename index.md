@@ -60,8 +60,8 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Awesome ECE5725 Project</h1>
-        <p class="lead">Really Awesome<br>A Project By Jane Doe.</p>
+        <h1>ECE 5725 Agriculture Drone Project</h1>
+        <p class="lead">Sun Lab <br>A Project By Jane Doe.</p>
       </div>
 
       <hr>
