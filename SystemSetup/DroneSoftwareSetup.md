@@ -21,7 +21,7 @@ The future application allows for easy interfacing between raspberry pi 2 and 3.
 
 5. ```sudo pip install mavproxy```
     
-#### Testing Communication Uisng Mavrpoxy
+#### Testing Communication Using Mavrpoxy
 Once the applications were installed, the next step was testing if  the RPi and Pixhawk are able to communicate with each other using this software. As mentioned in the communication setup section first we insured that the serial console is disabled and serial communication via hardware is enabled using raspi-config. We also checked this from the desktop screen by using the top left drop down menu. It is also possible to check that whether or not serial communication is enabled by checking the UART(universal asynchronous receiver-transmitter) value in /boot/config.txt. Check if this value is 1. 
 
 To test the communication we alternated the RX and TX connection between the RPi and Pixhawk and used a common ground for both RPi and Pixhawk. The Pixhawk is already powered with a built-in battery and the RPi was also powered using the micro-usb. It is also possible to use the 5 volt pin on breakout board for the Pixhawk to power the RPi, but we used the micro usb since the power input is more regulated. 
