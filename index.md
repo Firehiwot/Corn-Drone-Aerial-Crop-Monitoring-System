@@ -37,13 +37,38 @@
           <h1>ECE 5725 Agriculture Drone Project</h1>
           <p class="lead">Sun Lab <br>A Project By Jane Doe.</p>
         </div>
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#intro">Introduction</a></li>
-            <li><a href="#obj">Project Objective</a></li>
-            <li><a href="#design">Design</a></li>
-            <li><a href="#drawings">Drawings</a></li>
-            <li><a href="#testing">Testing</a></li>
-            <li><a href="#result">Result</a></li>
+           <aside class="menu" id="menu">
+              <ul class="menu-list">
+                <li>
+                  <a href="#intro" id="link_intro" class="is-active">Introduction</a>
+                </li>
+                <li>
+                  <a href="#design" id="link_design">Design &amp; Testing</a>
+                  <ul>
+                    <li><a href="#design_hardware" id="link_design_hardware">Hardware Design</a></li>
+                    <li><a href="#design_software" id="link_design_software">Software Design</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#results" id="link_results">Results</a>
+                </li>
+                <li>
+                  <a href="#conclusions" id="link_conclusions">Conclusions</a>
+                </li>
+                <li>
+                  <a href="#future_work" id="link_future_work">Future Work</a>
+                </li>
+                <li>
+                  <a href="#work_distribution" id="link_work_distribution">Work Distribution</a>
+                </li>
+                <li>
+                  <a href="#project_parts" id="link_project_parts">Project Parts</a>
+                </li>
+                <li>
+                  <a href="#references" id="link_references">References</a>
+                </li>
+              </ul>
+           </aside>
       </div>
     </nav>
     <div class="container">
