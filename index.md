@@ -69,17 +69,18 @@
 
     <hr id='obj'>
 
-      <div class="row">
-          <div class="col-md-4" style="text-align:center;">
-          <img class="img-rounded" src="pics/1.jpg" alt="Generic placeholder image" width="240" height="240">
+          <div class="col-md-6" style="font-size:15px;">
+              <h2>Web Framework</h2>
+              <br>
+              <br>
+              <p>The web server was developed under “Flask” framework. Within the framework, several functionalities like log-in/out, video streaming, R-Pi GPIO-controlling, voice message playback and new message notification were implemented. For log-in/out, it "render" between web pages after user-id and password were correctly entered or log-out button was pressed. MJPG library was used to continuously send JPEG pictures captured by PiCamera to web, the key technique for video streaming. GPIO-controlling was realized by implementing Javascript for a door-controlling button. Once the button was pressed, a “POST” message would be sent from template to web server, the servo-controlling function therefore was called to open the door. Voice playback was implemented by fetching audio files recorded at back end. New message notification was implemented by messaging function, which keeps updating the states of the "knock-knock" and "leave voice message" modes at back end. When new messages pops, a red dot would appear accordingly in the side bar to notify the user.</p>
           </div>
-          <div class="col-md-8" style="font-size:18px;">
-          <h2>Project Objective:</h2>
-          <ul>
-              <li>some important objectives.some important objectives.some important objectives.some important objectives.</li>
-                <li>some other important objectives.</li>
-            <li>some not-that-important objectives.</li>
-          </ul>
+
+          <br>
+
+          <div class="col-md-6" style="text-align:center;">
+              <img class="img-rounded" src="static/image/web.jpg" alt="Generic placeholder image" width="540" height="410">
+              <h5>Web Voice Message Page</h5>
           </div>
       </div>
 
