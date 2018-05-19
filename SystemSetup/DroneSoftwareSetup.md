@@ -39,7 +39,7 @@ We also confirmed that the voltages on the devices were correct ( 3.3 volt for R
 
 Further tests of communication using mavproxy are explained in the [Communication Setup](CommunicationSetup.md) section. 
 
-### Mission Planner
+2. ### Mission Planner
 
 The mission planner software was installed after we encountered communication issues using the Mavproxy software. This mission planner has features that enabled us to have a better understanding of the calibration system for the drone, simulate drone motion, create a mission for drone flight and locate where the drone is using the gps and compass sensors in the drone. 
 
