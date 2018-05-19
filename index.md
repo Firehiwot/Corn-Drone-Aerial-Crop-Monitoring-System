@@ -52,6 +52,7 @@
       <div class="center-block">
           <embed src="https://youtu.be/liCTpQmD1XQ" allowfullscreen="true" width="425" height="344">
           <object width="425" height="344" data="https://youtu.be/liCTpQmD1XQ"></object>
+          <iframe  width="425" height="344" src="https://youtu.be/liCTpQmD1XQ" frameborder="0" allowfullscreen></iframe>
           <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
