@@ -1,11 +1,8 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   ECE 5725 AGRICULTURE DRONE PROJECT
-  <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <title>HTML Reference</title>
 </head>
 <body>
   <nav>
