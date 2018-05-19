@@ -46,9 +46,6 @@
             <li><a href="#drawings">Drawings</a></li>
             <li><a href="#testing">Testing</a></li>
             <li><a href="#result">Result</a></li>
-          
-       </div>
-    </nav>
 
     <div class="container">
       <hr>
