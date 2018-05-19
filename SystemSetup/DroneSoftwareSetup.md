@@ -1,25 +1,25 @@
 
-##Software setup for drone
+## Software setup for drone
 
-###Mavproxy
+### Mavproxy
 
 Mavproxy is a ground control station (GCS) application for drones and other unmanned aerial vehicles (UAVs). It mainly uses command-line interface unlike other graphic based mission control softwares. Pymavlink allows us to use visual tools for realtime and offline data analysis and plotting
 
 In order to download the mavproxy package we followed the folling steps
 
-1. sudo apt-get update    #Update the list of packages in the software center
+1. ```sudo apt-get update    #Update the list of packages in the software center```
 
-2. sudo apt-get install screen python-wxgtk2.8 python-matplotlib python-opencv python-pip python-numpy python-dev libxml2-dev libxslt-dev
+2. ```sudo apt-get install screen python-wxgtk2.8 python-matplotlib python-opencv python-pip python-numpy python-dev libxml2-dev libxslt-dev```
 
 Some of these applications were already installed so we chose the ones that aren’t installed. We checked installed applications by using the whereis command to see if they exist in any of the folders on the RPi. 
 
-3. sudo pip install future
+3. ```sudo pip install future```
 
-The future application allows for easy interfacing between raspberry pi 2 and 3. It allows to convert a python2 or 3 code to a code that is compatible with both. We may not necessarily use this application, but we downloaded it incase if it is necessary at  some point during the project. (https://pypi.org/project/future/)
+The future application allows for easy interfacing between raspberry pi 2 and 3. It allows to convert a python2 or 3 code to a code that is compatible with both. We may not necessarily use this application, but we downloaded it incase if it is necessary at  some point during the project. 
 
-4. sudo pip install pymavlink
+4. ```sudo pip install pymavlink```
 
-5. sudo pip install mavproxy
+5. ```sudo pip install mavproxy```
     
 #### Testing Mavproxy
 Once the applications were installed, the next step was testing if  the RPi and Pixhawk are able to communicate with each other.As mentioned in the communication setup section first we insured that the serial console is disabled and serial communication via hardware is enabled using raspi-config. We also checked this from the desktop screen by using the top left drop down menu. It is also possible to check that whether or not serial communication is enabled by checking the UART(universal asynchronous receiver-transmitter) value in /boot/config.txt. Check if this value is 1. 
