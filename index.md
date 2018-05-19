@@ -1,34 +1,13 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <title>Sonic Communication - Angus Gibbs and Joao Pedro Carvao - ECE 5725 - Cornell University</title>
-    <link rel="stylesheet" href="css/bulma.min.css">
-    <link rel="stylesheet" href="css/page.css">
-  </head>
-  <body>
-    <nav class="navbar is-link is-fixed-top">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="img/cornell_seal_simple_white.svg" alt="Cornell logo" height="40" width="40">
-            Cornell ECE 5725
-          </a>
-        </div>
-        <div class="navbar-menu">
-          <div class="navbar-end">
-            <span class="navbar-item">
-              <a class="button is-success" href="code.zip">
-                Download Code
-              </a>
-            </span>
-            <span class="navbar-item">
-              <a class="button is-info is-inverted" href="https://github.com/angusgibbs/ece5725-final-project">
-                View on GitHub
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-</nav>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Single Page Sliding Layout - Design Shack Demo</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="https://designshack.net/favicon.ico">
+  <link rel="icon" href="https://designshack.net/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.scrollTo.js"></script>
+</head>
