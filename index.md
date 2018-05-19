@@ -50,7 +50,7 @@
     <div class="container">
       <hr>
       <div class="center-block">
-          <iframe width="640" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+          <iframe width="640" height="360" src="https://youtu.be/liCTpQmD1XQ" frameborder="0" allowfullscreen></iframe>
           <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
