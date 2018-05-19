@@ -39,10 +39,9 @@
           <h1>ECE 5725 Agriculture Drone Project</h1>
           <p class="lead">Sun Lab <br>A Project By Jane Doe.</p>
         </div>
-      
-       
+          <aside class="menu-list">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#intro" id="link_intro" class="is-active">Introduction</a></li>
             <li><a href="#obj">Project Objective</a></li>
             <li><a href="#design">Design</a></li>
             <li><a href="#drawings">Drawings</a></li>
