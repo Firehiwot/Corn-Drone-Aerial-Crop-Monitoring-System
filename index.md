@@ -50,10 +50,8 @@
     <div class="container">
       <hr>
       <div class="center-block">
-          <embed src="https://youtu.be/liCTpQmD1XQ" allowfullscreen="true" width="425" height="344">
-          <object width="425" height="344" data="https://youtu.be/liCTpQmD1XQ"></object>
-          <iframe  width="425" height="344" src="https://youtu.be/liCTpQmD1XQ" frameborder="0" allowfullscreen></iframe>
-          <h4 style="text-align:center;">Demonstration Video</h4>
+      <iframe width="640" height="360" src="https://www.youtube.com/watch?v=liCTpQmD1XQ&feature=youtu.be" frameborder="0" allowfullscreen></iframe>                    
+      <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
       <hr id="intro">
