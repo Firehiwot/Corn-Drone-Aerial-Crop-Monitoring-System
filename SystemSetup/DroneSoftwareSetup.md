@@ -58,7 +58,9 @@ The Solo firmware upgrades will fix bugs in the controller software and also may
     Therefore, first download .px4 file from this website
 
 ##### Updating from the sololink app
+
 The sololink app can also be used to update the firmware even though we didn’t do this for this project. The suggested steps are:
+
     * Turn on both solo quadcopter and GCS software such as APM or Mission Planner and connect the drone
     * Open the 3DR solo app
     * Go to settings menu
