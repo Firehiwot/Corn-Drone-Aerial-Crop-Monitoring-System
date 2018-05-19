@@ -27,32 +27,9 @@ The future application allows for easy interfacing between raspberry pi 2 and 3.
 
 The mission planner software was installed after we encountered communication issues using the Mavproxy software. This mission planner has features that enabled us to have a better understanding of the calibration system for the drone, simulate drone motion, create a mission for drone flight and locate where the drone is using the gps and compass sensors in the drone. 
 
-After the mission planner is downloaded and connected to the drone using COM port. There are initial setups that need to be done before the flying the drone using this software. On of the first setup is updating the firmware in the drone and controller. We used a manual download  and update of the firmware in the drone, but it is also possible to do it from the solo link mobile app. 
-
-### 3DR solo firmware update
-
-The Solo firmware upgrades will fix bugs in the controller software and also may have additional features that didn’t exist previous versions. 
-
-#### Manual update
-* Click on initial setup tab
-* Click on Install firmware: This gives you an image of different types of  UAVs
-* It says None under the quadcopter image for mission planner  or doesn’t respond when it is clicked
-* Open this [link](http://firmware.ardupilot.org/Tools/MissionPlanner/)
-* Go to firmware tab and click on APM Copter
-* Therefore, first download .px4 file from this website
-
-#### Updating from the sololink app
-
-The sololink app can also be used to update the firmware even though we didn’t do this for this project. The suggested steps are:
-
-* Turn on both solo quadcopter and GCS software such as APM or Mission Planner and connect the drone
-* Open the 3DR solo app
-* Go to settings menu
-* Select “software update”
-* For additional details click [here](https://www.dronezon.com/diy-drone-repair-videos/3dr-drone-diy/how-to-update-3dr-solo-firmware-version-for-big-improvements/)
-
-
-After the drone firmware is updated, the next step is calibrating the drone. The calibration can only be done outside since the drone can’t access wifi outside the lab. 
+After the mission planner is downloaded and connected to the drone using COM port. There are initial setups that need to be done before the flying the drone using this software. 
+* [3DR solo firmware update](firmwareupdate.md)
+* [Drone Calibration](Calibration.md)
 
 
 
