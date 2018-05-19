@@ -50,7 +50,10 @@
     <div class="container">
       <hr>
       <div class="center-block">
-      <img src="img/enableserialhardware.png" alt="Enable serial hardware">                    
+      <img src="img/enableserialhardware.png" alt="Enable serial hardware">   
+      <iframe width="420" height="315"
+      src="https://www.youtube.com/watch?v=liCTpQmD1XQ&feature=youtu.be">
+      </iframe> 
       <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
