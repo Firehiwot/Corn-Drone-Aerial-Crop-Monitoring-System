@@ -50,8 +50,7 @@
     <div class="container">
       <hr>
       <div class="center-block">
-      ![image](./img/enableserialhardware.img)
-      <iframe width="640" height="360" src="https://www.youtube.com/watch?v=liCTpQmD1XQ&feature=youtu.be" frameborder="0" allowfullscreen></iframe>                    
+      <img src="img/enableserialhardware.png" alt="System block diagram">                    
       <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
