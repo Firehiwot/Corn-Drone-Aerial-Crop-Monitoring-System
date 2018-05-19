@@ -29,7 +29,9 @@ The TX/RX pins of the RPi were connected to RX/TX pins of the breakout board res
 
 Once the hardware connections are setup correctly, the next step is to test if signals can be transmitted between the two devices.  In order to connect them we used Mavproxy software. The baud rate is set to 57600. The teletypewriter (tty) is USB0. --master specifies which port (serial, USB or network address/port) the UAV is communicating on. --baudrate specifies the baud rate and finally --aircraft specified the directory in which the log files for the drone are created.  
 
-**mavproxy.py --master=/dev/ttyS0 --baudrate 57600 --aircraft MyCopter**
+```
+mavproxy.py --master=/dev/ttyS0 --baudrate 57600 --aircraft MyCopter
+```
 
 However this step didn’t work. In fact, we got a console message that the link between the two was “OK” when the common ground pins were disconnected. Otherwise it displays “Waiting for heartbeat” message. Heartbeat is a periodic signal that can be transmitted between devices. Typing “link” on the console once Mavproxy is running can show whether or not the link is ok. 
 
@@ -39,7 +41,9 @@ We are not fully certain as to why the common ground issue gives error. However,
 #### 2. Universal serial port (USB)
 Instead of using the TX/RX pins on the breakout board and RPi, we connected connected a USB port to the RPi and the corresponding power, ground, Data+ (D+) and Data-(D-) pins on the breakout board. We tested the connection using a different tty. However, still the communication didn’t work. There was also a common ground issue in this communication. 
 
-**mavproxy.py --master=/dev/ttyUSB0 --baudrate 57600**
+```
+mavproxy.py --master=/dev/ttyUSB0 --baudrate 57600
+```
 
 #### 3. Direct connection with Pixhawk
     
@@ -52,7 +56,8 @@ This software enables us to directly connect the drone with our laptop using a C
 
 At this point we found out that we had to do software updates and calibrations for the drone before even checking the communication since the drone won’t be able to fly unless clibrations are done properly. Therefore, we took a step back and worked on updating the builtin software in the drone. However, in order test the communication only updates were necessary.  
 
-Click here to see how updates are done for the drone. 
+Click here to see how updates are done for the drone.
+
 Click here to see how we calibrated the drone. 
 
 Once the software is updated , we were also able to connect between the RPi and the drone using the same microsub-usb configuration. 
@@ -65,11 +70,15 @@ The way we connected with the drone from our laptop during field test was by usi
 
 In order to do this we first connected the RPi wifi to the wifi broadcasted from the controller (Sololink) and then accessed the wlan address by typing ifconfig  command from the console. We added this network address in the master command as shown below.  
 
-**mavproxy.py --master=udp:10.1.1.152:14550 --baudrate 57600 --aircraft MyCopter** 
+```
+mavproxy.py --master=udp:10.1.1.152:14550 --baudrate 57600 --aircraft MyCopter
+``` 
 
 The universal datagram protocol (UDP) is a communication protocol that transfers short data packets called datagrams. This communication worked well for our test. The UDP address can also be modified depending on the wlan address. However, since the RPi will be flying with the drone, the RPi will lose communication with the controller and thus the drone if the drone flies further. The drone is able to communicate with the controller over longer distances since it can use radio communication if the wifi signal is not strong enough. Therefore, it may be necessary to switch to the direct micro usb - usb connection for the actual implementation of the project in the corn field. 
 
 We also tested this communication using Dronekit software which also worked when we used connect command with the right udp (wlan) address. 
 
-**# Connect to the Vehicle (in this case a UDP endpoint)**
-**vehicle = connect('10.1.1.152:14550', wait_ready=True)**
+```
+# Connect to the Vehicle (in this case a UDP endpoint)
+vehicle = connect('10.1.1.152:14550', wait_ready=True)
+```
