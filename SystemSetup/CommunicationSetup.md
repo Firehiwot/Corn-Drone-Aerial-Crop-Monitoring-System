@@ -43,7 +43,7 @@ We are not fully certain as to why the common ground issue gives error. However,
 Instead of using the TX/RX pins on the breakout board and RPi, we connected connected a USB port to the RPi and the corresponding power, ground, Data+ (D+) and Data-(D-) pins on the breakout board. We tested the connection using a different tty. However, still the communication didn’t work. There was also a common ground issue in this communication. 
 
 ```
-mavproxy.py --master=/dev/ttyUSB0 --baudrate 57600
+mavproxy.py --master=/dev/ttyUSB0 --baudrate 57600 --aircraft MyCopter
 ```
 
 #### 3. Direct connection with Pixhawk
