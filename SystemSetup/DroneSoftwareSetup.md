@@ -45,11 +45,11 @@ The mission planner software was installed after we encountered communication is
 
 After the mission planner is downloaded and connected to the drone using COM port. There are initial setups that need to be done before the flying the drone using this software. On of the first setup is updating the firmware in the drone and controller. We used a manual download  and update of the firmware in the drone, but it is also possible to do it from the solo link mobile app. 
 
-#### 3DR solo firmware update
+### 3DR solo firmware update
 
 The Solo firmware upgrades will fix bugs in the controller software and also may have additional features that didn’t exist previous versions. 
 
-##### Manual update
+#### Manual update
 * Click on initial setup tab
 * Click on Install firmware: This gives you an image of different types of  UAVs
 * It says None under the quadcopter image for mission planner  or doesn’t respond when it is clicked
@@ -57,7 +57,7 @@ The Solo firmware upgrades will fix bugs in the controller software and also may
 * Go to firmware tab and click on APM Copter
 * Therefore, first download .px4 file from this website
 
-##### Updating from the sololink app
+#### Updating from the sololink app
 
 The sololink app can also be used to update the firmware even though we didn’t do this for this project. The suggested steps are:
 
@@ -67,5 +67,19 @@ The sololink app can also be used to update the firmware even though we didn’t
 * Select “software update”
 * For additional details click [here](https://www.dronezon.com/diy-drone-repair-videos/3dr-drone-diy/how-to-update-3dr-solo-firmware-version-for-big-improvements/)
 
+
+After the drone firmware is updated, the next step is calibrating the drone. The calibration can only be done outside since the drone can’t access wifi outside the lab. 
+
+#### Calibration steps: 
+The sensors in the drone need to be calibrated properly before flight. The three major calibrations that need to be done for the drone are level calibration, radio calibration and compass calibration. 
+
+**1. Level calibration** : the level calibration must be done from a level surface; otherwise it gives error. The mobile app gives prompt that tells us in which direction to place the drone on the floor. The front side of the drone should be facing exactly the same direction in which the calibrating person is facing. This calibration is important so that the drone sensors can know which way is front, back, left,right, up and down. 
+**2. Compass calibration** : The compass calibration is done from the mission planner because it gives a better graphical view of the number of samples taken in order to identify the compass directions. The average number of samples we took is around 800 but less number of samples could work too. After the calibration, it is good to check whether the mission planner app actually faces north when the drone faces the north direction. 
+**3. Radio Calibration** :is necessary for the controller. It is mainly used to set the maximum and minimum range of motion of the sticks on the controller. The drone has four channels for controlling yaw, throttle, pitch and roll. Throttle controls the vertical up and down motion. Yaw is the left and right rotation of the drone. Pitch is forward and backward motion. Roll is left right motion of the drone. The calibration was mainly done by moving the sticks to their extreme positions. This was also done on mission planner.  
+
+Channel 1: low = roll left, high = roll right.
+Channel 2: low = pitch forward, high=pitch back.
+Channel 3: low = throttle down (off), high = throttle up.
+Channel 4: low = yaw left, high = yaw right.
 
 
