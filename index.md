@@ -40,14 +40,14 @@
         </div>
           <aside class="menu-list">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#intro" id="link_intro" class="is-active">Introduction</a></li>
+            <li><a href="#intro">Introduction</a></li>
             <li><a href="#obj">Project Objective</a></li>
             <li><a href="#design">Design</a></li>
             <li><a href="#drawings">Drawings</a></li>
             <li><a href="#testing">Testing</a></li>
             <li><a href="#result">Result</a></li>
           
-      </div>
+       </div>
     </nav>
 
     <div class="container">
