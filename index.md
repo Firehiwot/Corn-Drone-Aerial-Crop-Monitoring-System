@@ -33,6 +33,12 @@
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
+       
+        <div class="starter-template">
+          <h1>ECE 5725 Agriculture Drone Project</h1>
+          <p class="lead">Sun Lab <br>A Project By Jane Doe.</p>
+        </div>
+      
         <div class="navbar-header">
         </div>
             <li class="active"><a href="#">Home</a></li>
@@ -47,12 +53,6 @@
     </nav>
 
     <div class="container">
-
-      <div class="starter-template">
-        <h1>ECE 5725 Agriculture Drone Project</h1>
-        <p class="lead">Sun Lab <br>A Project By Jane Doe.</p>
-      </div>
-
       <hr>
       <div class="center-block">
           <iframe width="640" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
