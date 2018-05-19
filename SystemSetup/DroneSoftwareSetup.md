@@ -37,4 +37,4 @@ Running the above test automatically creates a log file in MyCopter folder that 
 
 We also confirmed that the voltages on the devices were correct ( 3.3 volt for RX/TX pins and 0 volt for ground pin). We used the link command to see if there is connection and it says that there is no link and 0 packets. When the ground pin was accidentally disconnected during measurement; at this point we got a "link OK" output on the screen.  However, when we connected the ground pin back, the link command shows no connection. 
 
-Further tests of communication using mavproxy are explained in the Communication Setup[CommunicationSetup.md] section. 
+Further tests of communication using mavproxy are explained in the [Communication Setup](CommunicationSetup.md) section. 
