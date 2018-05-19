@@ -39,7 +39,7 @@ We also confirmed that the voltages on the devices were correct ( 3.3 volt for R
 
 Further tests of communication using mavproxy are explained in the [Communication Setup](CommunicationSetup.md) section. 
 
-2. ### Mission Planner
+### 2. Mission Planner
 
 The mission planner software was installed after we encountered communication issues using the Mavproxy software. This mission planner has features that enabled us to have a better understanding of the calibration system for the drone, simulate drone motion, create a mission for drone flight and locate where the drone is using the gps and compass sensors in the drone. 
 
@@ -70,7 +70,7 @@ The sololink app can also be used to update the firmware even though we didn’t
 
 After the drone firmware is updated, the next step is calibrating the drone. The calibration can only be done outside since the drone can’t access wifi outside the lab. 
 
-#### Calibration steps: 
+### Drone Calibration  
 The sensors in the drone need to be calibrated properly before flight. The three major calibrations that need to be done for the drone are level calibration, radio calibration and compass calibration. 
 
 **1. Level calibration** : the level calibration must be done from a level surface; otherwise it gives error. The mobile app gives prompt that tells us in which direction to place the drone on the floor. The front side of the drone should be facing exactly the same direction in which the calibrating person is facing. This calibration is important so that the drone sensors can know which way is front, back, left,right, up and down. 
