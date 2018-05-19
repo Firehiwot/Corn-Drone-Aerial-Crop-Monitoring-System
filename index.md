@@ -42,7 +42,7 @@
             <li><a href="#obj">Project Objective</a></li>
             <li><a href="#hard_design">Hardware Design</a></li>
             <li><a href="#sys_setup">System Setup</a></li>
-            <li><a href="#softdesign">Software Design</a></li>
+            <li><a href="#soft_design">Software Design</a></li>
             <li><a href="#testing">Final Integration and Testing</a></li>
             <li><a href="#futurework">Future Work</a></li>
       </div>
