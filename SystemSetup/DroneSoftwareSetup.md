@@ -53,7 +53,7 @@ The Solo firmware upgrades will fix bugs in the controller software and also may
     * Click on initial setup tab
     * Click on Install firmware: This gives you an image of different types of  UAVs
     * It says None under the quadcopter image for mission planner  or doesn’t respond when it is clicked
-    * Open this [link] (http://firmware.ardupilot.org/Tools/MissionPlanner/)
+    * Open this [link](http://firmware.ardupilot.org/Tools/MissionPlanner)
     * Go to firmware tab and click on APM Copter
     Therefore, first download .px4 file from this website
 
@@ -65,7 +65,7 @@ The sololink app can also be used to update the firmware even though we didn’t
     * Open the 3DR solo app
     * Go to settings menu
     * Select “software update”
-    * For additional details click [here] (https://www.dronezon.com/diy-drone-repair-videos/3dr-drone-diy/how-to-update-3dr-solo-firmware-version-for-big-improvements/)
+    * For additional details click [here](https://www.dronezon.com/diy-drone-repair-videos/3dr-drone-diy/how-to-update-3dr-solo-firmware-version-for-big-improvements)
 
 
 
