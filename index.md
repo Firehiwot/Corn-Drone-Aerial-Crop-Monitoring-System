@@ -41,7 +41,7 @@
           </button>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+          
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#intro">Introduction</a></li>
             <li><a href="#obj">Project Objective</a></li>
@@ -49,7 +49,7 @@
             <li><a href="#drawings">Drawings</a></li>
             <li><a href="#testing">Testing</a></li>
             <li><a href="#result">Result</a></li>
-          </ul>
+          
         </div><!--/.nav-collapse -->
       </div>
     </nav>
