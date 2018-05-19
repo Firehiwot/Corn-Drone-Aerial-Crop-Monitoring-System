@@ -189,6 +189,7 @@ We also tested this communication using Dronekit software which also worked when
 # Connect to the Vehicle (in this case a UDP endpoint)
 vehicle = connect('10.1.1.152:14550', wait_ready=True)
 ```
+</p>
           </div>
 
 
