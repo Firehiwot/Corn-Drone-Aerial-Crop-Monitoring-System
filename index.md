@@ -40,8 +40,6 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#intro">Introduction</a></li>
             <li><a href="#obj">Project Objective</a></li>
@@ -50,7 +48,6 @@
             <li><a href="#testing">Testing</a></li>
             <li><a href="#result">Result</a></li>
           
-        </div><!--/.nav-collapse -->
       </div>
     </nav>
 
