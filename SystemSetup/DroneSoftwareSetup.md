@@ -21,7 +21,7 @@ The future application allows for easy interfacing between raspberry pi 2 and 3.
 
 5. ```sudo pip install mavproxy```
     
-#### Testing Mavproxy
+#### Testing Communication Uisng Mavrpoxy
 Once the applications were installed, the next step was testing if  the RPi and Pixhawk are able to communicate with each other using this software. As mentioned in the communication setup section first we insured that the serial console is disabled and serial communication via hardware is enabled using raspi-config. We also checked this from the desktop screen by using the top left drop down menu. It is also possible to check that whether or not serial communication is enabled by checking the UART(universal asynchronous receiver-transmitter) value in /boot/config.txt. Check if this value is 1. 
 
 To test the communication we alternated the RX and TX connection between the RPi and Pixhawk and used a common ground for both RPi and Pixhawk. The Pixhawk is already powered with a built-in battery and the RPi was also powered using the micro-usb. It is also possible to use the 5 volt pin on breakout board for the Pixhawk to power the RPi, but we used the micro usb since the power input is more regulated. 
@@ -38,3 +38,32 @@ Running the above test automatically creates a log file in MyCopter folder that 
 We also confirmed that the voltages on the devices were correct ( 3.3 volt for RX/TX pins and 0 volt for ground pin). We used the link command to see if there is connection and it says that there is no link and 0 packets. When the ground pin was accidentally disconnected during measurement; at this point we got a "link OK" output on the screen.  However, when we connected the ground pin back, the link command shows no connection. 
 
 Further tests of communication using mavproxy are explained in the [Communication Setup](CommunicationSetup.md) section. 
+
+### Mission Planner
+
+The mission planner software was installed after we encountered communication issues using the Mavproxy software. This mission planner has features that enabled us to have a better understanding of the calibration system for the drone, simulate drone motion, create a mission for drone flight and locate where the drone is using the gps and compass sensors in the drone. 
+
+After the mission planner is downloaded and connected to the drone using COM port. There are initial setups that need to be done before the flying the drone using this software. On of the first setup is updating the firmware in the drone and controller. We used a manual download  and update of the firmware in the drone, but it is also possible to do it from the solo link mobile app. 
+
+#### 3DR solo firmware update
+
+The Solo firmware upgrades will fix bugs in the controller software and also may have additional features that didn’t exist previous versions. 
+
+##### Manual update
+    * Click on initial setup tab
+    * Click on Install firmware: This gives you an image of different types of  UAVs
+    * It says None under the quadcopter image for mission planner  or doesn’t respond when it is clicked
+    * Open this [link](http://firmware.ardupilot.org/Tools/MissionPlanner/)
+    * Go to firmware tab and click on APM Copter
+    Therefore, first download .px4 file from this website
+
+##### Updating from the sololink app
+The sololink app can also be used to update the firmware even though we didn’t do this for this project. The suggested steps are:
+    * Turn on both solo quadcopter and GCS software such as APM or Mission Planner and connect the drone
+    * Open the 3DR solo app
+    * Go to settings menu
+    * Select “software update”
+    * For additional details click [here](https://www.dronezon.com/diy-drone-repair-videos/3dr-drone-diy/how-to-update-3dr-solo-firmware-version-for-big-improvements/)
+
+
+
