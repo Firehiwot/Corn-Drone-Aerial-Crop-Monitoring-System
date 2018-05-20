@@ -55,7 +55,7 @@
     <div class="container">
       <hr>
       <div class="center-block"> 
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/liCTpQmD1XQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align = "center" ></iframe>
+     <iframe width="560" height="315" align = "middle" src="https://www.youtube.com/embed/liCTpQmD1XQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen  ></iframe>
       <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
@@ -106,7 +106,7 @@
                  </div>
               </p>
              <img src="img/highlevelprojectblock.PNG" alt="commimg" style="width:80%;">
-             <p style="text-align: justify;padding: 0px 30px;"> The communication flow of the entire system.
+             <p style="text-align: center;padding: 0px 30px;"> The communication flow of the entire system.
              </p>
       </div>
  
@@ -123,16 +123,16 @@
             <h2>Communication Setup</h2>
             
                 <p style="text-align: justify;padding: 0px 30px;">We used three different approaches to setup communication between the Pixhawk and the RPi. The Pixhawk is the flight controller hardware embedded in the drone that contains ARM processor, sensors, power system control, and communication interfaces such as serial ports, I2C, USB and SPI.</p>
-                <br>
+          
                 <h3>Step 1: Turnoff serial console</h3> 
                 
                 <p style="text-align: justify;padding: 0px 30px;">Before we started the communication setup, we turned off the serial console in the RPI. The serial console allows us to connect between other computers and the RPi to access the linux console that displays system settings during boot. This is important to check and fix problems during boot or while logging onto the RPi. If this is not turned off it can interfere with the signal that is sent between the RPi and the drone. It is important to note that we only disabled the setting that allows the login shell to be accessible over seria; the serial hardware communication is not disabled.</p>              
               
-                <br>
+              
                 The serial console can be turned off in two ways:
                 <br>
                 <h4>1. Using raspi-config:</h4>
-                <ul>
+                <ul style="text-align:left">
                   <li> Type raspi-config in the console</li>
                   <li> Go down to advanced options and hit enter</li>
                   <li> Go down to Serial and hit enter</li>
@@ -170,7 +170,7 @@
                 <h4>3. Direct connection with Pixhawk</h4>
                 
                 <p style="text-align: justify;padding: 0px 30px;">At this point we decided to take apart the drone and access the Pins directly. When we took it apart, we found out that there is a  microsub pin. Therefore, we planned on setting up a direct micro usb-usb connection between the raspberry pi and the pixhawk. </p>
-                <img src = "img/microusb-usbconnectiontestpixhawk.png" alt="usbconn" style="width:60%;" align="middle">
+                <img src = "img/microusb-usbconnectiontestpixhawk.png" alt="usbconn" style="width:80%;" align="middle">
                 <p style="text-align: justify;padding: 0px 30px;"> Direct connection between drone and laptop through mavrpoxy using micro usb -usb cable. 
                 </p>
                 <br>
@@ -230,7 +230,7 @@
           <h2>Calibration</h2>
           <p style="text-align: justify;padding: 0px 30px;">The sensors in the drone need to be calibrated properly before flight. The three major calibrations that need to be done for the drone are level calibration, radio calibration and compass calibration.</p>
           <img src = "img/calibrationofdrone.png" alt="calibration" style="width:80%;">   
-          <p style="text-align: justify;padding: 0px 30px;"> Different calibrations that need to be done before flying drone.
+          <p style="text-align: center; padding: 0px 30px;"> Different calibrations that need to be done before flying drone.
           </p>
           <p style="text-align: justify;padding: 0px 30px;">Level calibration: the level calibration must be done from a level surface; otherwise it gives error. The mobile app gives prompt that tells us in which direction to place the drone on the floor. The front side of the drone should be facing exactly the same direction in which the calibrating person is facing. This calibration is important so that the drone sensors can know which way is front, back, left,right, up and down.</p>
           <p style="text-align: justify;padding: 0px 30px;">Compass calibration: The compass calibration is done from the mission planner because it gives a better graphical view of the number of samples taken in order to identify the compass directions. The average number of samples we took is around 800 but less number of samples could work too. After the calibration, it is good to check whether the mission planner app actually faces north when the drone faces the north direction.</p>
@@ -252,7 +252,7 @@
                <p style="text-align: justify;padding: 0px 30px;">The spectrometer starts procuring the spectra data for that particular GPS coordinate and stores it in a csv file. The script when activated acquires the spectra data, optimizes the parameters received and then plots a light intensity plot consisting all the pixel values corresponding to the timestamp they were recorded.</p>
                <img src="img/Captureblock.PNG" alt="flowchart" style="width:80%;">
                
-               <p style="text-align: justify;padding: 0px 30px;">
+               <p style="text-align: center;padding: 0px 30px;">
                A flow chart of the entire system. 
                </p>
              
