@@ -107,14 +107,15 @@
 We used three different approaches to setup communication between the Pixhawk and the RPi. The Pixhawk is the flight controller hardware embedded in the drone that contains ARM processor, sensors, power system control, and communication interfaces such as serial ports, I2C, USB and SPI. 
 </p>
 
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 <b> Step 1: Turnoff serial console </b>
   <br>
 Before we started the communication setup, we turned off the serial console in the RPI. The serial console allows us to connect between other computers and the RPi to access the linux console that displays system settings during boot. This is important to check and fix problems during boot or while logging onto the RPi. If this is not turned off it can interfere with the signal that is sent between the RPi and the drone. It is important to note that we only disabled the setting that allows the login shell to be accessible over seria; the serial hardware communication is not disabled. 
 
 </p>
 
-<p> The serial console can be turned off in two ways
+<p style="text-align: left;padding: 0px 30px;> 
+The serial console can be turned off in two ways
 <br>
 1. Using raspi-config
   <li> Type raspi-config in the console </li>
@@ -124,41 +125,41 @@ Before we started the communication setup, we turned off the serial console in t
   <li> Select Yes for the second question</li>
 </p>
 
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 2. From desktop
   <li> From the desktop screen click on the RPi log </li>
   <li> Click on Preferences </li>
   <li> Click on Raspberry Pi configuration </li>
   <li> Disable serial console</li>
 
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 <br>
 Step 2: Setup communication
 <br>
 1. Tx/RX serial communication port
 Our first approach was to setup a serial communication between drone and RPi. Since the Pixhawk is inside the drone we used a breakout board to access the pins from outside. 
 </p>
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 The TX/RX pins of the RPi were connected to RX/TX pins of the breakout board respectively. This allows us to transmit data between the drone and the RPi. The baud rate ( the rate in which signals are signals are transmitted) the the communication on the RPi should be set to 57600 since the Pixhawk transmits signals at this rate. In addition, it is also important to ensure that there is a common ground between RPi and Pixhawk.
 </p>
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 Once the hardware connections are setup correctly, the next step is to test if signals can be transmitted between the two devices.  In order to connect them we used Mavproxy software. The baud rate is set to 57600. The teletypewriter (tty) is USB0. --master specifies which port (serial, USB or network address/port) the UAV is communicating on. --baudrate specifies the baud rate and finally --aircraft specified the directory in which the log files for the drone are created. The Mavproxy software is run as a root user; therefore sudo -s should be used to switch from pi user to root user. 
 </p>
 
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 sudo -s 
 <br>
 mavproxy.py --master=/dev/ttyS0 --baudrate 57600 --aircraft MyCopter
 </p>
 
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 However this step didn’t work. In fact, we got a console message that the link between the two was “OK” when the common ground pins were disconnected. Otherwise it displays “Waiting for heartbeat” message. Heartbeat is a periodic signal that can be transmitted between devices. Typing “link” on the console once Mavproxy is running can show whether or not the link is ok. 
 </p>
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 We are not fully certain as to why the common ground issue gives error. However, at some point, we took apart the entire drone noticed that even though the breakout board is connected directly, the ground pins indicated on the breakout board do not go to the Pixhawk. We alternated between different ground pins and tested the connection, but this didn’t make a difference. Therefore, we switched to using another form of communication. 
 </p>
 
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 2. Universal serial port (USB)
 <br>
 Instead of using the TX/RX pins on the breakout board and RPi, we connected connected a USB port to the RPi and the corresponding power, ground, Data+ (D+) and Data-(D-) pins on the breakout board. We tested the connection using a different tty. However, still the communication didn’t work. There was also a common ground issue in this communication. 
@@ -167,21 +168,21 @@ Instead of using the TX/RX pins on the breakout board and RPi, we connected conn
 mavproxy.py --master=/dev/ttyUSB0 --baudrate 57600 --aircraft MyCopter
 </p>
 
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 3. Direct connection with Pixhawk
 <br>    
 At this point we decided to take apart the drone and access the Pins directly. When we took it apart, we found out that there is a  microsub pin. Therefore, we planned on setting up a direct micro usb-usb connection between the raspberry pi and the pixhawk. 
 </p>
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 Before doing that we installed another ground control station (GCS) software that other people normally use on their laptops to connect with the drone. We installed Mission Planner and APM Planner 2.0 softwares. Both have similar configurations and for later steps during the project we mostly used Mission Planner. 
 </p>
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 This software enables us to directly connect the drone with our laptop using a COM (communication) port through the USB. We were able to connect the drone. 
 </p>
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 At this point we found out that we had to do software updates and calibrations for the drone before even checking the communication since the drone won’t be able to fly unless clibrations are done properly. Therefore, we took a step back and worked on updating the builtin software in the drone. However, in order test the communication only updates were necessary.  
 </p>
-<p>
+<p style="text-align: left;padding: 0px 30px;>
 Once the software is updated , we were also able to connect between the RPi and the drone using the same microsub-usb configuration. 
 </p>
 <p>
