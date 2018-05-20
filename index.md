@@ -124,8 +124,7 @@ The serial console can be turned off in two ways
     <li> Select Yes for the second question
 </ul>
  2. From desktop
-From the desktop screen click on the RPi log
-***more explanation here***
+From the desktop screen click on the RPi log, then click on preferences and from the drop down menu select Raspberry Pi configuration. Select disable for Serial. 
 
 ### Step 2: Setup communication
 
