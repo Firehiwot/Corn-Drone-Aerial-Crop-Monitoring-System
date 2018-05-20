@@ -50,6 +50,8 @@
             <li><a href="#soft_design">Software Design</a></li>
             <li><a href="#testing">Final Integration and Testing</a></li>
             <li><a href="#futurework">Future Work</a></li>
+            <li><a href="#code">Code Appendix</a></li>
+
       </div>
     </nav>
     <div class="container">
@@ -348,12 +350,8 @@
 
       <div class="row">
               <h2>Code Appendix</h2>
-              <pre><code>
-             // Hello World.c
-int main(){
-  printf("Hello World.\n");
-}
-              </code></pre>
+       <a href="Codes/hello_drone.py">hello_drone</a></p>
+       
       </div>
 
     </div><!-- /.container -->
