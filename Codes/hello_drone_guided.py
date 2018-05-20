@@ -1,3 +1,4 @@
+# Script by Christine Y. Chang, Rahul Desai, Shinjini Biswas and Firehiwot Gurara Cornell University
 #!/usr/bin/python
 # adapted from : http://python.dronekit.io/guide/taking_off.html
 print ("Start code for drone motion")
