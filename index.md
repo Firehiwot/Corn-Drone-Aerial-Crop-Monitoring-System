@@ -55,7 +55,7 @@
     <div class="container">
       <hr>
       <div class="center-block"> 
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/liCTpQmD1XQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/liCTpQmD1XQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align = "center" ></iframe>
       <h4 style="text-align:center;">Demonstration Video</h4>
       </div>
 
@@ -72,7 +72,10 @@
              <h2>Project Objectives</h2>
              <div class="row">
                 <div class="col-md-6" style="font-size:15px;">
-                    <img src="img/field.PNG" alt="Corn Abstract" style="width: 80%;">
+                    <img src="img/field.PNG" alt="Corn Abstract" style="width: 60%;">
+                 <p style="text-align: justify;padding: 0px 30px;"> A general overview of how the drone would fly from the home base to different points in the corn field. 
+                 </p>
+                 <br>
                 </div>
                 <div class="col-md-6" style="font-size:15px; text-align:justify;">
                     <ul>
@@ -103,6 +106,8 @@
                  </div>
               </p>
              <img src="img/highlevelprojectblock.PNG" alt="commimg" style="width:80%;">
+             <p style="text-align: justify;padding: 0px 30px;"> The communication flow of the entire system.
+             </p>
       </div>
  
 
@@ -168,7 +173,9 @@
                 <h4>3. Direct connection with Pixhawk</h4>
                 
                 <p style="text-align: justify;padding: 0px 30px;">At this point we decided to take apart the drone and access the Pins directly. When we took it apart, we found out that there is a  microsub pin. Therefore, we planned on setting up a direct micro usb-usb connection between the raspberry pi and the pixhawk. </p>
-                <img src = "img/microusb-usbconnectiontestpixhawk.png" alt="usbconn" style="width:80%;">
+                <img src = "img/microusb-usbconnectiontestpixhawk.png" alt="usbconn" style="width:60%;" align="middle">
+                <p style="text-align: justify;padding: 0px 30px;"> Direct connection between drone and laptop through mavrpoxy using micro usb -usb cable. 
+                </p>
                 <br>
                 <p style="text-align: justify;padding: 0px 30px;">Before doing that we installed another ground control station (GCS) software that other people normally use on their laptops to connect with the drone. We installed Mission Planner and APM Planner 2.0 softwares. Both have similar configurations and for later steps during the project we mostly used Mission Planner.</p>
                 
@@ -177,7 +184,7 @@
                 <p style="text-align: justify;padding: 0px 30px;">At this point we found out that we had to do software updates and calibrations for the drone before even checking the communication since the drone won’t be able to fly unless clibrations are done properly. Therefore, we took a step back and worked on updating the builtin software in the drone. However, in order test the communication only updates were necessary. </p>
               
                 <p style="text-align: justify;padding: 0px 30px;">Once the software is updated , we were also able to connect between the RPi and the drone using the same microsub-usb configuration. </p>
-                <img src = "img/micrusb-usbconnectionfromRPi.png" alt="usbconnRPi" style="width:80%;">
+                <img src = "img/micrusb-usbconnectionfromRPi.png" alt="usbconnRPi" style="width:80%;" align="middle">
                 <br>   
                 <p style="text-align: justify;padding: 0px 30px;">We thought this step would be our final connection method with the drone. However, we found out that this communication only works as long as the drone is turned off since the Pixhawk can be powered from the RPi. This could be a result of the drone preventing double powering of the controller(Pixhawk). One way to avoid this could be stripping the wire that has micro usb and usb  ports on either ends and cutting the power line. However, we decided to move try another alternative that we thought would work after testing the drone in the field.</p>
           
@@ -225,11 +232,13 @@
             <p style="text-align: justify;padding: 0px 30px;">If the applications are already installed, step 1 is not necessary.</p>              
           <h2>Calibration</h2>
           <p style="text-align: justify;padding: 0px 30px;">The sensors in the drone need to be calibrated properly before flight. The three major calibrations that need to be done for the drone are level calibration, radio calibration and compass calibration.</p>
-          <img src = "img/calibrationofdrone.png" alt="calibration" style="width:80%;">        
+          <img src = "img/calibrationofdrone.png" alt="calibration" style="width:80%;">   
+          <p style="text-align: justify;padding: 0px 30px;"> Different calibrations that need to be done before flying drone.
+          </p>
           <p style="text-align: justify;padding: 0px 30px;">Level calibration: the level calibration must be done from a level surface; otherwise it gives error. The mobile app gives prompt that tells us in which direction to place the drone on the floor. The front side of the drone should be facing exactly the same direction in which the calibrating person is facing. This calibration is important so that the drone sensors can know which way is front, back, left,right, up and down.</p>
           <p style="text-align: justify;padding: 0px 30px;">Compass calibration: The compass calibration is done from the mission planner because it gives a better graphical view of the number of samples taken in order to identify the compass directions. The average number of samples we took is around 800 but less number of samples could work too. After the calibration, it is good to check whether the mission planner app actually faces north when the drone faces the north direction.</p>
           <img src = "img/compasscalibration.png" alt="compass" style="width:80%;">
-          <p style="text-align: justify;padding: 0px 30px;">Radio Calibration:is necessary for the controller. It is mainly used to set the maximum and minimum range of motion of the sticks on the controller. The drone has four channels for controlling yaw, throttle, pitch and roll. Throttle controls the vertical up and down motion. Yaw is the left and right rotation of the drone. Pitch is forward and backward motion. Roll is left right motion of the drone. The calibration was mainly done by moving the sticks to their extreme positions. This was also done on mission planner.</p>
+          <p style="text-align: justify;padding: 0px 30px;">Radio Calibration: It is necessary for the controller. It is mainly used to set the maximum and minimum range of motion of the sticks on the controller. The drone has four channels for controlling yaw, throttle, pitch and roll. Throttle controls the vertical up and down motion. Yaw is the left and right rotation of the drone. Pitch is forward and backward motion. Roll is left right motion of the drone. The calibration was mainly done by moving the sticks to their extreme positions. This was also done on mission planner.</p>
           <img src = "img/radiocalibration.png" alt="radio" style="width:80%;">
           <p style="text-align: justify;padding: 0px 30px;">Channel 1: low = roll left, high = roll right.</p>
           <p style="text-align: justify;padding: 0px 30px;">Channel 2: low = pitch forward, high=pitch back.</p>
@@ -245,6 +254,10 @@
              
                <p style="text-align: justify;padding: 0px 30px;">The spectrometer starts procuring the spectra data for that particular GPS coordinate and stores it in a csv file. The script when activated acquires the spectra data, optimizes the parameters received and then plots a light intensity plot consisting all the pixel values corresponding to the timestamp they were recorded.</p>
                <img src="img/Captureblock.PNG" alt="flowchart" style="width:80%;">
+               
+               <p style="text-align: justify;padding: 0px 30px;">
+               A flow chart of the entire system. 
+               </p>
              
               <h3>Challenges Faced:</h3>
               <p style="text-align: justify;padding: 0px 30px;">During the temperature data acquisition, there was an a need to switch from the seabreeze library to the pyusb and again switch back to seabreeze to reiterate and calculate the optimized integration time values. Resolving this problem took a lot of time, as care had to be taken so that the functions used to close the libraries and start them again did not affect the resources used.</p>
@@ -279,6 +292,7 @@
              <p style="text-align: justify;padding: 0px 30px;">Finally we test if we can fly the drone autonomously by designing a flight plan to desired points. For this we have to set a few GPS coordinates for the drone to reach. These points are called waypoints (WPs). We can easily specify these in the Mission Planner Software The only problem here was that we could not get the satellite map imaging of the field. Thus in order to fix the coordinates that corresponded to home as the launch position we used our phone GPS to verify and also run the drone code. We added 2 WPs and configured the plan to return to launch position after finishing the plan. This file was saved, loaded and written onto the drone. Then when the drone is armed and allowed to begin action it flies to the desired locations and returns to the launch site. The landing is preset with the drone where it hovers over the launch position and slowly descends vertically until it reaches the ground.</p>
              <p style="text-align: justify;padding: 0px 30px;">Next we wanted to test if we can gain back manual control while the drone was already in an autonomous flight plan. So we ran the mission again but before the drone could complete the route we started controlling it with the hand held controller. This worked but once it was under manual control it was not possible to get it to return to autonomous mode and complete its route. </p>
              <p style="text-align: justify;padding: 0px 30px;">Finally we wanted to test if we can make the drone hover at the desired waypoints. This was done by setting up delays at each waypoint. This worked successfully at all points. We also decreased the speed of the drone to fly slower to each position.</p>
+            
              
       </div>
 
