@@ -74,7 +74,7 @@
              <h2>Project Objectives</h2>
              <div class="row">
                 <div class="col-md-6" style="font-size:15px;">
-                    <img src="img/field.PNG" width= 60% height= 50% alt="Corn Abstract">
+                    <img src="img/field.PNG" alt="Corn Abstract" style="width: 80%;">
                 </div>
                 <div class="col-md-6" style="font-size:15px; text-align:justify;">
                     <ul>
@@ -301,8 +301,8 @@
               <img src="img/group.jpg" alt="grouppic" style="width:80%;">
               <p> L-R: Christine, Shinjini, Rahul, Firehiwot</p>
               
-              <ul>
-                 <li> Christine Chang, cyc54@cornell.edu: The brains behind the project and guided us through out the project.</li>
+              <ul style= "text-align: left;">
+                 <li> Christine Chang, cyc54@cornell.edu: The brains behind the project.</li>
                  <li> Shinjini Biswas, sb2448@cornell.edu: Integration of both interfacing programs and testing of the final system.</li>
                  <li> Rahul Desai, rd542@cornell.edu: Implemented the Raspberry Pi - Flame spectrometer interfacing.</li>
                  <li> Firehiwot Gurara, fwg24@cornell.edu: Incharge of system setup, and integration of the Raspberry Pi - Drone Interface.</li>
@@ -361,13 +361,13 @@
       <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_guided.py">hello_drone_guided.py</a>
       <br>
       <b> Hello Drone code with waypoint setup: </b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hell0_drone_man.py </a>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hello_drone_man.py </a>
       <br>
       <b> Flame code for temperuature measurement:</b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_control.py">flame_control.py </a>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_control.py">temperature_control.py </a>
       <br>
       <b> Flame control code:</b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Code/flame_qep_controller_v3updated.py">flame_control.py</a>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_qep_controller_v3updated.py">flame_control.py</a>
       
       </div>
 
