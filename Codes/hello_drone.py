@@ -1,3 +1,4 @@
+# Script by Christine Y. Chang, Rahul Desai, Shinjini Biswas and Firehiwot Gurara Cornell University
 # adapted from : http://python.dronekit.io/guide/taking_off.html
 print ("Start code for drone motion")
 from dronekit import connect, VehicleMode, LocationGlobalRelative, LocationGlobal, Command
