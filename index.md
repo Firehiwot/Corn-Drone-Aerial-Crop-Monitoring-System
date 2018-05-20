@@ -34,8 +34,8 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="starter-template">
-          <h1>Corn Drone - Aerial Crop Monitoring System </h1>
-          <p class="lead">Sun Lab <br>A Project By Firehiwot Gurara, Rahul Desai, Shinjini Biswas and Christine Chang.</p>
+          <h1>ECE 5725 Final Design Project </h1>
+          <p class="lead" style="text-align: center">Sun Lab <br>A Project By Firehiwot Gurara, Rahul Desai, Shinjini Biswas and Christine Chang.</p>
         </div>
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#intro">Introduction</a></li>
