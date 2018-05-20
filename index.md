@@ -74,7 +74,7 @@
              <h2>Project Objectives</h2>
              <div class="row">
                 <div class="col-md-6" style="font-size:15px;">
-                    <img src="img/field.png" alt="Corn Abstract"
+                    <img src="img/field.png" alt="Corn Abstract>
                 </div>
                 <div class="col-md-6" style="font-size:15px; text-align:justify;">
                     <ul>
