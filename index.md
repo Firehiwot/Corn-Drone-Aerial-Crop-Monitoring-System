@@ -206,7 +206,14 @@
               <h3> Raspberry Pi - Flame Spectrometer Interface </h3>
               <p style="text-align: justify;padding: 0px 30px;">The payload on the drone consists of a ‘flame’ spectrometer which gets activated whenever the drone hovers above a specific location. Spectrometers are used to measure the intensity of light with respect to its electromagnetic spectrum, typically wavelength or frequency. The light reflected off the corn crop was to be analyzed using the spectra data collected from the spectrometer to study the plants growth patterns.
               <br>
-              The spectrometer starts procuring the spectra data for that particular GPS coordinate and stores it in a csv file. The script when activated acquires the spectra data, optimizes the parameters received and then plots a light intensity plot consisting all the pixel values corresponding to the timestamp they were recorded.</p>
+              The spectrometer starts procuring the spectra data for that particular GPS coordinate and stores it in a csv file. The script when activated acquires the spectra data, optimizes the parameters received and then plots a light intensity plot consisting all the pixel values corresponding to the timestamp they were recorded.
+              <br>
+              <br>
+              <h4>Challenges Faced:</h4>
+              <br>
+              During the temperature data acquisition, there was an a need to switch from the seabreeze library to the pyusb and again switch back to seabreeze to reiterate and calculate the optimized integration time values. Resolving this problem took a lot of time, as care had to be taken so that the functions used to close the libraries and start them again did not affect the resources used.
+              <br>
+              During the integration between the seabreeze code and the pyusb temperature code, it was decided to develop a separate script for the temperature procurement because there was a need to reinitialize the spectrometer before passing the respective usb command to it. A separate script to initialize the spectrometer, get the temperature data from the flame spectrometer and release the resources isolated the scripts thereby making it easier to debug the code. This script was imported to the seabreeze spectrometer script and called as a function.</p>  
             </div>
       </div>
 
