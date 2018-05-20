@@ -235,7 +235,6 @@
 
       <div style="text-align:center;">
               <h2>Software Design</h2>
-              <div style="text-align:left;">
               <h3> Raspberry Pi - Flame Spectrometer Interface </h3>
               <p style="text-align: justify;padding: 0px 30px;">The payload on the drone consists of a ‘flame’ spectrometer which gets activated whenever the drone hovers above a specific location. Spectrometers are used to measure the intensity of light with respect to its electromagnetic spectrum, typically wavelength or frequency. The light reflected off the corn crop was to be analyzed using the spectra data collected from the spectrometer to study the plants growth patterns.
               <br>
@@ -245,7 +244,6 @@
               <p style="text-align: justify;padding: 0px 30px;">During the temperature data acquisition, there was an a need to switch from the seabreeze library to the pyusb and again switch back to seabreeze to reiterate and calculate the optimized integration time values. Resolving this problem took a lot of time, as care had to be taken so that the functions used to close the libraries and start them again did not affect the resources used.</p>
               
               <p style="text-align: justify;padding: 0px 30px;">During the integration between the seabreeze code and the pyusb temperature code, it was decided to develop a separate script for the temperature procurement because there was a need to reinitialize the spectrometer before passing the respective usb command to it. A separate script to initialize the spectrometer, get the temperature data from the flame spectrometer and release the resources isolated the scripts thereby making it easier to debug the code. This script was imported to the seabreeze spectrometer script and called as a function.</p>  
-            </div>
             <h3>Drone - Raspberry Pi Interface</h3>
             <p style="text-align: justify;padding: 0px 30px;">A python code that uses dronekit commands was used to control the motion of the drone. In this code we first connect the drone and the RPi and check initial configurations such as location and  battery status. Doing this allows the user to check system settings before creating mission and flying the drone.</p>
             <p style="text-align: justify;padding: 0px 30px;">The missions are created in the form of list that sets waypoints using “Command “command. These waypoint lists are later added into one big list and uploaded on the drone. Each way point list is used to configure a command such us takeoff or return to launch, create a condition delay or no delay and set latitude, longitude and altitude. The drone mode must be set to auto in order to use the waypoints for setting up the drone motion. </p>
@@ -254,8 +252,7 @@
             <h3>Integrated software</h3>
             <p style="text-align: justify;padding: 0px 30px;">The integrated software is designed so that it imports the flame controller code and calls the measure function in the flame controller code to start measuring. The measure function is called whenever the drone is within the radius of the GPS point. The GPS point is set by using the latitude and longitude values at that point. If the drone is outside this radius range then there will be no measurement.</p>
             <p style="text-align: justify;padding: 0px 30px;">For the initial test the drone is given preset way point: home, A and B for this case. During the actual test, a mission will be created with preset longitude and latitude values. These points will be randomized so that the drone moves between different way points in different patterns.</p>
-      </div>
-
+            </div>
     <hr id='testing'>
 
     <div style="text-align:center;">
@@ -315,7 +312,9 @@
     <div style="font-size:18px">
           <h2>References</h2>
           
-          <p><b> Drone kit </b><a href="http://python.dronekit.io/guide/taking_off.html">Python Dronekit Guide</a>
+          <p><b> Drone kit </b>
+          <br>
+          <a href="http://python.dronekit.io/guide/taking_off.html">Python Dronekit Guide</a>
           <br>
           <a href="http://python.dronekit.io/guide/connecting_vehicle.html#get-started-connecting">Connecting through dronekit</a>
           <br>
