@@ -351,12 +351,17 @@
 
       <div class="row">
               <h2>Code Appendix</h2>
-              <pre><code>
-             // Hello World.c
-int main(){
-  printf("Hello World.\n");
-}
-              </code></pre>
+              
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_guided.py">hello_drone_guided.py:Integrated code</a>
+      <br>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone.py">hello_drone.py: Intial setup check code</a>
+      <br>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hell_drone_man.py: Hello Drone code with waypoint setup</a>
+      <br>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_control.py">flame_control.py: Flame code for temperuature measurement</a>
+      <br>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Code /flame_qep_controller_v3updated.py">flame_control.py: Flame control code</a>
+      
       </div>
 
     </div><!-- /.container -->
