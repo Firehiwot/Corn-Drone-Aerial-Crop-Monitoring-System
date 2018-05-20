@@ -74,13 +74,13 @@
              <h2>Project Objectives</h2>
              <div class="row">
                 <div class="col-md-6" style="font-size:15px;">
-                    <img src="img/field.PNG" width="200" height= "100" alt="Corn Abstract">
+                    <img src="img/field.PNG" width= 60% height= 50% alt="Corn Abstract">
                 </div>
                 <div class="col-md-6" style="font-size:15px; text-align:justify;">
                     <ul>
                       <li>Gathering hyperspectral data at predetermined points on a corn field with the help of an autonomous unmanned aerial vehicle (UAV).</li>
                       <li>Set up robust communications between the UAV, the spectrometer and the RPi to enable flight over extended distances without delay or loss of network.</li>
-                      <li>Interfacing the spectrometer with the RPi to procure and plot crucial data of wavelength reflections from each crop region for detection of plant distress signals.<li>
+                      <li>Interfacing the spectrometer with the RPi to procure and plot crucial data of wavelength reflections from each crop region for detection of plant distress signals.</li>
                     </ul>
                 </div> 
              </div>
@@ -91,7 +91,7 @@
       <div style="text-align:center;">
               <h2>Hardware Design</h2>
               
-                    <img src="img/wholesetup.JPG" style="float: left;width: 40%;margin-right: 1%;margin-bottom: 0.5em;"><img src="img/dronewithcontroller.JPG" style="float: left;width: 40%;margin-right: 1%;margin-bottom: 0.5em;">                
+                    <img src="img/wholesetup.JPG" style="float: left;width: 40%;margin-right: 10%;margin-bottom: 0.5em;"><img src="img/dronewithcontroller.JPG" style="float: left;width: 40%;margin-right: 10%;margin-bottom: 0.5em;">                
                <br>
                
               <p style="text-align: left;padding: 0px 30px;">The components used for this project are:
