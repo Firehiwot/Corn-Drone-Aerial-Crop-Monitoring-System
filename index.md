@@ -292,7 +292,7 @@
              <p style="text-align: justify;padding: 0px 30px;">Next we wanted to test if we can gain back manual control while the drone was already in an autonomous flight plan. So we ran the mission again but before the drone could complete the route we started controlling it with the hand held controller. This worked but once it was under manual control it was not possible to get it to return to autonomous mode and complete its route. </p>
              <p style="text-align: justify;padding: 0px 30px;">Finally we wanted to test if we can make the drone hover at the desired waypoints. This was done by setting up delays at each waypoint. This worked successfully at all points. We also decreased the speed of the drone to fly slower to each position. This autonomous flight is shown in the following video.</p>
              
-             <iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/AppfIghGG_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe align>
+             <iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/AppfIghGG_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             
              
       </div>
