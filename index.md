@@ -54,8 +54,7 @@
     </nav>
     <div class="container">
       <hr>
-      <div class="center-block">
-      <img src="img/enableserialhardware.png" alt="Enable serial hardware"> 
+      <div class="center-block"> 
       <iframe width="640" height="360" 
       src="https://www.youtube.com/watch?v=liCTpQmD1XQ&feature=youtu.be" frameborder="0" allowfullscreen>
       </iframe>
@@ -75,7 +74,7 @@
              <h2>Project Objectives</h2>
              <div class="row">
                 <div class="col-md-6" style="font-size:15px;">
-                    <img class="img-rounded" src="static/image/web.jpg" alt="Generic placeholder image" width="540" height="410">
+                    <img src="img/field.png" alt="Corn Abstract"
                 </div>
                 <div class="col-md-6" style="font-size:15px; text-align:justify;">
                     <ul>
@@ -91,6 +90,9 @@
 
       <div style="text-align:center;">
               <h2>Hardware Design</h2>
+              <div class="col-md-6" style="font-size:15px;">
+                    <img src="img/wholesetup.jpg" style="float: left;width: 30%;margin-right: 1%;margin-bottom: 0.5em;"><img src="img/dronewithcontroller.jpg" style="float: left;width: 30%;margin-right: 1%;margin-bottom: 0.5em;">                
+               </div>
               <p style="text-align: left;padding: 0px 30px;">The components used for this project are:
                 <div style="text-align:left;">
                   <ol>
@@ -348,16 +350,12 @@
 
       <div class="row">
               <h2>Code Appendix</h2>
-       <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone.py">hello_drone.py</a>
-       <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hello_drone_man.py</a>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hello_drone_guided.py(Integrated Code)</a>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_qep_controller_v3updated.py">hello_drone_guided.py(Integrated Code)</a>
-      
-      
-      
-       
-
-       
+              <pre><code>
+             // Hello World.c
+int main(){
+  printf("Hello World.\n");
+}
+              </code></pre>
       </div>
 
     </div><!-- /.container -->
