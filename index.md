@@ -341,6 +341,7 @@
           <br>
           <b>Planning mission</b>
           <br>
+          
           <a href="https://ardupilot.github.io/MAVProxy/html/modules/misseditor.html">Mavproxy mission editor</a>
           <br>
           <a href="http://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html">Planning mission using waypoints</a>
