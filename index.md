@@ -226,10 +226,8 @@
               <h3>Control Test:</h3>
               <p style="text-align: justify;padding: 0px 30px;">Our first test was simply starting the drone using the hand held controller and navigating randomly by using the sticks on the controller. This was a control test to make sure that the drone worked without error when guided using the manual throttle joysticks on the hand held controller. This provides a fallback option if autonomous controls fail or some controls malfunction where we can gain manual control and drive the drone and its expensive payload to safety avoiding a crash.</p>
               <h3>Communication Test:</h3>
-              <p style="text-align: justify;padding: 0px 30px;">Next we checked the communication of the Raspberry Pi to the Drone and the Flame Spectrometer to the Raspberry Pi. We wish to see that each program worked without any error on the field before incorporating the integrated version of the codes.</p>
-              <br>              
+              <p style="text-align: justify;padding: 0px 30px;">Next we checked the communication of the Raspberry Pi to the Drone and the Flame Spectrometer to the Raspberry Pi. We wish to see that each program worked without any error on the field before incorporating the integrated version of the codes.</p>              
               <p style="text-align: justify;padding: 0px 30px;">The spectrometer code was run as a stand-alone program after connecting the Flame Spectrometer with the optic cable to the Raspberry Pi. This started the data collection as desired and stored it as a file in the attached USB drive.</p>
-              <br>
               <p style="text-align: justify;padding: 0px 30px;">Next we ran the drone code to ensure that it detects the GPS and returned the latitude and longitude of its position. We next employed a more elaborate version of this program where we fixed 2 GPS locations on the field. We then guided the drone (either by flying manually or by walking the device) to the respective location to see if the drone recognises the points and signals that it has successfully reached each point. This provided quite a few challenges. One hurdle was that the weather and nearby buildings caused the GPS locations obtained from the satellite to drift with time making our testing unreliable. However once we moved our testing to a more open area we saw lesser shifting of the GPS and could proceed further. Secondly we had to define a radius around each position so that when we are manually guiding the drone we do not waste time and resources in finding the GPS points.</p>
              
              <h3>Integrated Communication Test:</h3>
@@ -246,15 +244,18 @@
 
       <div style="text-align:center;">
               <h2>Future Work</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <p style="text-align: justify;padding: 0px 30px;">In this project, we were able to successfully communicate between drone and RPi, integrate the code that measures the spectrometer data and sets up drone motion and finally use these in order to take measurements in a field. We also tested the autonomous and guided drone flight in the corn field using mission planner software. The flame code is also scalable to the QE Pro spectrometer. </p>
+              <p style="text-align: justify;padding: 0px 30px;">Currently, we are using polling loop to take measurements. In the future, it is useful to use interrupts so that we don’t waste processor cycle. We are currently minimizing this by adding a delay of 1 second before each loop iteration. In addition, the drone motion should be tested by using waypoints and autonomous motion. Even though the PiTFT is placed on the bottom side, it could be useful to have a graphical interface that can allow the user to start the drone motion directly by pressing a button from the RPi screen.</p>
+              <p style="text-align: justify;padding: 0px 30px;">An app that can allow controlling motion of the drone will also be useful so that the drone motion can be controlled from a mobile phone. In addition, there is also a possibility that the drone controller can be configured so that there is a direct communication between the controller and the RPi instead of the drone and the RPi. This can help us to tackle the challenge of losing control of the RPi once the drone moves farther from its home point.</p>
+              <p style="text-align: justify;padding: 0px 30px;">Setting up the drone so that the user can tell it when to take measurements after setting its motion until a certain point. This allows the user to have control over the drone motion and measurement in real time instead of presetting GPS points. In addition having a modular code that can allows the user to integrate other sensors or use camera for taking pictures of the field will be helpful. The final system set up should work form a bigger drone.</p>
       </div>
-
-    <hr>
 
     <div class="row" style="text-align:center;">
           <h2>Work Distribution</h2>
           <div style="text-align:center;">
+          <h3>Meet the Team</h3>
               <img class="img-rounded" src="pics/group.jpg" alt="Generic placeholder image" style="width:80%;">
+              
               <h4>Project group picture</h4>
           </div>
           <div class="col-md-6" style="font-size:16px">
