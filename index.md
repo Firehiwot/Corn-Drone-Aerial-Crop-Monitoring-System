@@ -35,7 +35,7 @@
       <div class="container">
         <div class="starter-template">
           <h1 style = "text-align:center"> ECE 5725 Final Design Project </h1>
-          <p class="lead" style="text-align: center">Sun Lab <br>A Project By Firehiwot Gurara, Rahul Desai, Shinjini Biswas and Christine Chang.</p>
+          <p class="lead" style="text-align: center">Sun Lab <br>A Project By Firehiwot Gurara, Rahul Desai, Shinjini Biswas and Christine Chang</p>
         </div>
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#intro">Introduction</a></li>
@@ -71,13 +71,13 @@
     <div style="text-align:center;">
              <h2>Project Objectives</h2>
              <div class="row">
-                <div class="col-md-6" style="font-size:15px;">
+                <div class="col-md-6" style="font-size:30px;">
                     <img src="img/field.PNG" alt="Corn Abstract" style="width: 60%;">
                  <p style="text-align: justify;padding: 0px 30px;"> A general overview of how the drone would fly from the home base to different points in the corn field. 
                  </p>
                  <br>
                 </div>
-                <div class="col-md-6" style="font-size:15px; text-align:justify;">
+                <div class="col-md-6" style="font-size:30px; text-align:justify;">
                     <ul>
                       <li>Gathering hyperspectral data at predetermined points on a corn field with the help of an autonomous unmanned aerial vehicle (UAV).</li>
                       <li>Set up robust communications between the UAV, the spectrometer and the RPi to enable flight over extended distances without delay or loss of network.</li>
@@ -285,7 +285,7 @@
              <h3>Integrated Communication Test:</h3>
              <p style="text-align: justify;padding: 0px 30px;">We proceed forward by testing the integrated code that incorporates the spectrometer data acquisition program into our main drone program. This was designed such that whenever the drone successfully recognises a predefined point it will call the spectrometer code to start its data collection. We tested this while manually guiding the drone to each point and checking if the spectrometer code ran once the location was detected by the drone. We had to ensure that we run the spectrometer code only once for each position. This was achieved in the code design with the help of flags. Next we had to ensure that the main drone code did not interrupt the spectrometer code while it was taking the data. For this we has to reorganise the spectrometer code to run as a function which is called when a point is reached. The main challenge for this was that the spectrometer code ran only for the first point and not for the rest. This was resolved by editing the spectrometer code to return counter variables to their initial value after completion of the program. This is shown in the following video:</p>
              
-             <iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/nJf8V9m2dbU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+             <iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/dhn-irnAxSQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
              
              <h3>Autonomous Flight Test:</h3>
              <p style="text-align: justify;padding: 0px 30px;">Finally we test if we can fly the drone autonomously by designing a flight plan to desired points. For this we have to set a few GPS coordinates for the drone to reach. These points are called waypoints (WPs). We can easily specify these in the Mission Planner Software The only problem here was that we could not get the satellite map imaging of the field. Thus in order to fix the coordinates that corresponded to home as the launch position we used our phone GPS to verify and also run the drone code. We added 2 WPs and configured the plan to return to launch position after finishing the plan. This file was saved, loaded and written onto the drone. Then when the drone is armed and allowed to begin action it flies to the desired locations and returns to the launch site. The landing is preset with the drone where it hovers over the launch position and slowly descends vertically until it reaches the ground.</p>
