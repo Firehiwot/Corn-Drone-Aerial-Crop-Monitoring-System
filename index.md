@@ -71,13 +71,13 @@
     <div style="text-align:center;">
              <h2>Project Objectives</h2>
              <div class="row">
-                <div class="col-md-6" style="font-size:30px;">
+                <div class="col-md-6" style="font-size:20px;">
                     <img src="img/field.PNG" alt="Corn Abstract" style="width: 60%;">
                  <p style="text-align: justify;padding: 0px 30px;"> A general overview of how the drone would fly from the home base to different points in the corn field. 
                  </p>
                  <br>
                 </div>
-                <div class="col-md-6" style="font-size:30px; text-align:justify;">
+                <div class="col-md-6" style="font-size:20px; text-align:justify;">
                     <ul>
                       <li>Gathering hyperspectral data at predetermined points on a corn field with the help of an autonomous unmanned aerial vehicle (UAV).</li>
                       <li>Set up robust communications between the UAV, the spectrometer and the RPi to enable flight over extended distances without delay or loss of network.</li>
