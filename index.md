@@ -50,8 +50,6 @@
             <li><a href="#soft_design">Software Design</a></li>
             <li><a href="#testing">Final Integration and Testing</a></li>
             <li><a href="#futurework">Future Work</a></li>
-            <li><a href="#code">Code Appendix</a></li>
-
       </div>
     </nav>
     <div class="container">
@@ -350,7 +348,15 @@
 
       <div class="row">
               <h2>Code Appendix</h2>
-       <a href="Codes/hello_drone.py">hello_drone</a></p>
+       <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone.py">hello_drone.py</a>
+       <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hello_drone_man.py</a>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hello_drone_guided.py(Integrated Code)</a>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_qep_controller_v3updated.py">hello_drone_guided.py(Integrated Code)</a>
+      
+      
+      
+       
+
        
       </div>
 
