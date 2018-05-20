@@ -44,6 +44,8 @@
             <li><a href="#sys_setup">System Setup</a></li>
             <ul>
                <li><a href="#comm_setup">Communication Setup</a></li>
+               <li><a href="#soft_setup">Software Setup</a></li>
+               <li><a href="#cali">Calibration</a></li>               
             </ul>
             <li><a href="#soft_design">Software Design</a></li>
             <li><a href="#testing">Final Integration and Testing</a></li>
@@ -113,13 +115,12 @@
     <div style="text-align:center;">
             <h2>Communication Setup</h2>
             <div style="text-align:justify;">
-                <p style="text-align: justify;padding: 0px 30px;">
+                <p style="text-align: justify;padding: 0px 30px;">We used three different approaches to setup communication between the Pixhawk and the RPi. The Pixhawk is the flight controller hardware embedded in the drone that contains ARM processor, sensors, power system control, and communication interfaces such as serial ports, I2C, USB and SPI.</p>
                 <br>
-                We used three different approaches to setup communication between the Pixhawk and the RPi. The Pixhawk is the flight controller hardware embedded in the drone that contains ARM processor, sensors, power system control, and communication interfaces such as serial ports, I2C, USB and SPI. 
                 <br>
                 Step 1: Turnoff serial console 
                 <br>
-                Before we started the communication setup, we turned off the serial console in the RPI. The serial console allows us to connect between other computers and the RPi to access the linux console that displays system settings during boot. This is important to check and fix problems during boot or while logging onto the RPi. If this is not turned off it can interfere with the signal that is sent between the RPi and the drone. It is important to note that we only disabled the setting that allows the login shell to be accessible over seria; the serial hardware communication is not disabled. 
+                <p style="text-align: justify;padding: 0px 30px;">Before we started the communication setup, we turned off the serial console in the RPI. The serial console allows us to connect between other computers and the RPi to access the linux console that displays system settings during boot. This is important to check and fix problems during boot or while logging onto the RPi. If this is not turned off it can interfere with the signal that is sent between the RPi and the drone. It is important to note that we only disabled the setting that allows the login shell to be accessible over seria; the serial hardware communication is not disabled.</p> 
               </div>
               <div style="text-align:left;">
                 <br>
@@ -135,6 +136,7 @@
                 </ul>
                </div>
                <div style="text-align:justify;">
+               
                 2. From desktop:
                 <br>
                 From the desktop screen click on the RPi logo, click on Preferences and then select RaspberyPi configuration. Select disable button for Serial. 
@@ -193,10 +195,41 @@
                 <br>
                 vehicle = connect('10.1.1.152:14550', wait_ready=True)
                 <br>
-               </div>
-              </div>
         </div>
-
+       <hr id='soft_setup'>
+       
+       <div style="text-align:center;">
+              <h3>Software Setup</h3>
+              <h4>1. Mavproxy</h4>
+              <p style="text-align: justify;padding: 0px 30px;">Mavproxy is a ground control station (GCS) application for drones and other unmanned aerial vehicles (UAVs). It mainly uses command-line interface unlike other graphic based mission control softwares. Pymavlink allows us to use visual tools for realtime and offline data analysis and plotting.</p>
+              <p style="text-align: justify;padding: 0px 30px;">In order to download the mavproxy package we followed the following steps:</p>
+              <p style="text-align: justify;padding: 0px 30px;">sudo apt-get update    #Update the list of packages in the software center</p>
+              <p style="text-align: justify;padding: 0px 30px;">Some of these applications were already installed so we chose the ones that aren’t installed. We checked installed applications by using the whereis command to see if they exist in any of the folders on the RPi. </p>
+              <p style="text-align: justify;padding: 0px 30px;">sudo apt-get install screen python-wxgtk2.8 python-matplotlib python-opencv python-pip python-numpy python-dev libxml2-dev libxslt-dev</p>
+              <p style="text-align: justify;padding: 0px 30px;">Some of these applications were already installed so we chose the ones that aren’t installed. We checked installed applications by using the whereis command to see if they exist in any of the folders on the RPi.</p>
+              <p style="text-align: justify;padding: 0px 30px;">sudo pip install future</p>
+              <p style="text-align: justify;padding: 0px 30px;">The future application allows for easy interfacing between raspberry pi 2 and 3. It allows to convert a python2 or 3 code to a code that is compatible with both. We may not necessarily use this application, but we downloaded it incase if it is necessary at  some point during the project.</p>
+              <p style="text-align: justify;padding: 0px 30px;">4. sudo pip install pymavlink</p>
+              <p style="text-align: justify;padding: 0px 30px;">5. sudo pip install mavproxy</p>
+           <h4>2. Mission planner</h4>
+            <p style="text-align: justify;padding: 0px 30px;">The mission planner software was installed after we encountered communication issues using the Mavproxy software. This mission planner has features that enabled us to have a better understanding of the calibration system for the drone, simulate drone motion, create a mission for drone flight and locate where the drone is using the gps and compass sensors in the drone.</p>
+             <p style="text-align: justify;padding: 0px 30px;">After the mission planner is downloaded and connected to the drone using COM port. There are initial setups that need to be done before the flying the drone using this software. On of the first setup is updating the firmware in the drone and controller. We used a manual download  and update of the firmware in the drone, but it is also possible to do it from the solo link mobile app.</p>
+             
+            <h4>3. Drone kit</h4>
+            <p style="text-align: justify;padding: 0px 30px;">Drone kit is another python based ground control station software. This software allowed us to write python code to control drone motion and integrate it with the RPi. To install drone kit software</p>
+            <p style="text-align: justify;padding: 0px 30px;">sudo apt-get install python-pip python-dev python-numpy python-opencv python-serial python-pyparsing python-wxgtk2.8 libxml2-dev libxslt-dev</p>
+            <p style="text-align: justify;padding: 0px 30px;">sudo pip install droneapi</p>
+            <p style="text-align: justify;padding: 0px 30px;">echo "module load droneapi.module.api" >> ~/.mavinit.scr</p>
+            <p style="text-align: justify;padding: 0px 30px;">If the applications are already installed, step 1 is not necessary.</p>              
+          <h3>Calibration</h3>
+          <p style="text-align: justify;padding: 0px 30px;">The sensors in the drone need to be calibrated properly before flight. The three major calibrations that need to be done for the drone are level calibration, radio calibration and compass calibration.</p>
+          <p style="text-align: justify;padding: 0px 30px;">Level calibration: the level calibration must be done from a level surface; otherwise it gives error. The mobile app gives prompt that tells us in which direction to place the drone on the floor. The front side of the drone should be facing exactly the same direction in which the calibrating person is facing. This calibration is important so that the drone sensors can know which way is front, back, left,right, up and down.</p>
+          <p style="text-align: justify;padding: 0px 30px;">Compass calibration: The compass calibration is done from the mission planner because it gives a better graphical view of the number of samples taken in order to identify the compass directions. The average number of samples we took is around 800 but less number of samples could work too. After the calibration, it is good to check whether the mission planner app actually faces north when the drone faces the north direction.</p>
+          <p style="text-align: justify;padding: 0px 30px;">Radio Calibration:is necessary for the controller. It is mainly used to set the maximum and minimum range of motion of the sticks on the controller. The drone has four channels for controlling yaw, throttle, pitch and roll. Throttle controls the vertical up and down motion. Yaw is the left and right rotation of the drone. Pitch is forward and backward motion. Roll is left right motion of the drone. The calibration was mainly done by moving the sticks to their extreme positions. This was also done on mission planner.</p>
+          <p style="text-align: justify;padding: 0px 30px;">Channel 1: low = roll left, high = roll right.</p>
+          <p style="text-align: justify;padding: 0px 30px;">Channel 2: low = pitch forward, high=pitch back.</p>
+          <p style="text-align: justify;padding: 0px 30px;">Channel 3: low = throttle down (off), high = throttle up.</p>
+          <p style="text-align: justify;padding: 0px 30px;">Channel 4: low = yaw left, high = yaw right.</p>
 
     <hr id='soft_design'>
 
