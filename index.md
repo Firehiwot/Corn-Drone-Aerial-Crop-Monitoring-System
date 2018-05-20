@@ -121,14 +121,13 @@
 
     <div style="text-align:center;">
             <h2>Communication Setup</h2>
-            <div style="text-align:justify;">
+            
                 <p style="text-align: justify;padding: 0px 30px;">We used three different approaches to setup communication between the Pixhawk and the RPi. The Pixhawk is the flight controller hardware embedded in the drone that contains ARM processor, sensors, power system control, and communication interfaces such as serial ports, I2C, USB and SPI.</p>
                 <br>
                 <h3>Step 1: Turnoff serial console</h3> 
                 
-                <p style="text-align: justify;padding: 0px 30px;">Before we started the communication setup, we turned off the serial console in the RPI. The serial console allows us to connect between other computers and the RPi to access the linux console that displays system settings during boot. This is important to check and fix problems during boot or while logging onto the RPi. If this is not turned off it can interfere with the signal that is sent between the RPi and the drone. It is important to note that we only disabled the setting that allows the login shell to be accessible over seria; the serial hardware communication is not disabled.</p> 
-              </div>
-              <div style="text-align:left;">
+                <p style="text-align: justify;padding: 0px 30px;">Before we started the communication setup, we turned off the serial console in the RPI. The serial console allows us to connect between other computers and the RPi to access the linux console that displays system settings during boot. This is important to check and fix problems during boot or while logging onto the RPi. If this is not turned off it can interfere with the signal that is sent between the RPi and the drone. It is important to note that we only disabled the setting that allows the login shell to be accessible over seria; the serial hardware communication is not disabled.</p>              
+              
                 <br>
                 The serial console can be turned off in two ways:
                 <br>
@@ -139,10 +138,8 @@
                   <li> Go down to Serial and hit enter</li>
                   <li> You will be asked the first question below and select No</li>
                   <li> Select Yes for the second question</li>
-                </ul>
-                
-               </div>
-               <div style="text-align:justify;">
+                </ul>            
+              
                
                 <h4>2. From desktop:</h4>
                 <p style="text-align: justify;padding: 0px 30px;">From the desktop screen click on the RPi logo, click on Preferences and then select RaspberyPi configuration. Select disable button for Serial.</p>
@@ -286,12 +283,16 @@
               <p style="text-align: justify;padding: 0px 30px;">Next we ran the drone code to ensure that it detects the GPS and returned the latitude and longitude of its position. We next employed a more elaborate version of this program where we fixed 2 GPS locations on the field. We then guided the drone (either by flying manually or by walking the device) to the respective location to see if the drone recognises the points and signals that it has successfully reached each point. This provided quite a few challenges. One hurdle was that the weather and nearby buildings caused the GPS locations obtained from the satellite to drift with time making our testing unreliable. However once we moved our testing to a more open area we saw lesser shifting of the GPS and could proceed further. Secondly we had to define a radius around each position so that when we are manually guiding the drone we do not waste time and resources in finding the GPS points.</p>
              
              <h3>Integrated Communication Test:</h3>
-             <p style="text-align: justify;padding: 0px 30px;">We proceed forward by testing the integrated code that incorporates the spectrometer data acquisition program into our main drone program. This was designed such that whenever the drone successfully recognises a predefined point it will call the spectrometer code to start its data collection. We tested this while manually guiding the drone to each point and checking if the spectrometer code ran once the location was detected by the drone. We had to ensure that we run the spectrometer code only once for each position. This was achieved in the code design with the help of flags. Next we had to ensure that the main drone code did not interrupt the spectrometer code while it was taking the data. For this we has to reorganise the spectrometer code to run as a function which is called when a point is reached. The main challenge for this was that the spectrometer code ran only for the first point and not for the rest. This was resolved by editing the spectrometer code to return counter variables to their initial value after completion of the program.</p>
+             <p style="text-align: justify;padding: 0px 30px;">We proceed forward by testing the integrated code that incorporates the spectrometer data acquisition program into our main drone program. This was designed such that whenever the drone successfully recognises a predefined point it will call the spectrometer code to start its data collection. We tested this while manually guiding the drone to each point and checking if the spectrometer code ran once the location was detected by the drone. We had to ensure that we run the spectrometer code only once for each position. This was achieved in the code design with the help of flags. Next we had to ensure that the main drone code did not interrupt the spectrometer code while it was taking the data. For this we has to reorganise the spectrometer code to run as a function which is called when a point is reached. The main challenge for this was that the spectrometer code ran only for the first point and not for the rest. This was resolved by editing the spectrometer code to return counter variables to their initial value after completion of the program. This is shown in the following video:</p>
+             
+             <iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/nJf8V9m2dbU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
              
              <h3>Autonomous Flight Test:</h3>
              <p style="text-align: justify;padding: 0px 30px;">Finally we test if we can fly the drone autonomously by designing a flight plan to desired points. For this we have to set a few GPS coordinates for the drone to reach. These points are called waypoints (WPs). We can easily specify these in the Mission Planner Software The only problem here was that we could not get the satellite map imaging of the field. Thus in order to fix the coordinates that corresponded to home as the launch position we used our phone GPS to verify and also run the drone code. We added 2 WPs and configured the plan to return to launch position after finishing the plan. This file was saved, loaded and written onto the drone. Then when the drone is armed and allowed to begin action it flies to the desired locations and returns to the launch site. The landing is preset with the drone where it hovers over the launch position and slowly descends vertically until it reaches the ground.</p>
              <p style="text-align: justify;padding: 0px 30px;">Next we wanted to test if we can gain back manual control while the drone was already in an autonomous flight plan. So we ran the mission again but before the drone could complete the route we started controlling it with the hand held controller. This worked but once it was under manual control it was not possible to get it to return to autonomous mode and complete its route. </p>
-             <p style="text-align: justify;padding: 0px 30px;">Finally we wanted to test if we can make the drone hover at the desired waypoints. This was done by setting up delays at each waypoint. This worked successfully at all points. We also decreased the speed of the drone to fly slower to each position.</p>
+             <p style="text-align: justify;padding: 0px 30px;">Finally we wanted to test if we can make the drone hover at the desired waypoints. This was done by setting up delays at each waypoint. This worked successfully at all points. We also decreased the speed of the drone to fly slower to each position. This autonomous flight is shown in the following video.</p>
+             
+             <iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/AppfIghGG_g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe align>
             
              
       </div>
