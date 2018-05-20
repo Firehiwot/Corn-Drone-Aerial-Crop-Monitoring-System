@@ -100,9 +100,9 @@
     
     <hr id='comm_setup'>
 
-<div style="text-align:center;">
-    <h2>Communication Setup</h2>
-      <p style="text-align: left;padding: 0px 30px;">
+      <div style="text-align:center;">
+         <h2>Communication Setup</h2>
+           <p style="text-align: left;padding: 0px 30px;">
               
 ## Communication setup
 
@@ -189,7 +189,7 @@ We also tested this communication using Dronekit software which also worked when
 # Connect to the Vehicle (in this case a UDP endpoint)
 vehicle = connect('10.1.1.152:14550', wait_ready=True)
 ```
- </div>
+     </div>
 
 
     <hr id='soft_design'>
