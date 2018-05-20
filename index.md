@@ -74,7 +74,7 @@
              <h2>Project Objectives</h2>
              <div class="row">
                 <div class="col-md-6" style="font-size:15px;">
-                    <img src="img/field.png" alt="Corn Abstract">
+                    <img src="img/field.PNG" alt="Corn Abstract">
                 </div>
                 <div class="col-md-6" style="font-size:15px; text-align:justify;">
                     <ul>
@@ -91,8 +91,9 @@
       <div style="text-align:center;">
               <h2>Hardware Design</h2>
               <div class="col-md-6" style="font-size:15px;">
-                    <img src="img/wholesetup.jpg" style="float: left;width: 30%;margin-right: 1%;margin-bottom: 0.5em;"><img src="img/dronewithcontroller.jpg" style="float: left;width: 30%;margin-right: 1%;margin-bottom: 0.5em;">                
+                    <img src="img/wholesetup.JPG" style="float: left;width: 30%;margin-right: 1%;margin-bottom: 0.5em;"><img src="img/dronewithcontroller.JPG" style="float: left;width: 30%;margin-right: 1%;margin-bottom: 0.5em;">                
                </div>
+               <br>
               <p style="text-align: left;padding: 0px 30px;">The components used for this project are:
                 <div style="text-align:left;">
                   <ol>
