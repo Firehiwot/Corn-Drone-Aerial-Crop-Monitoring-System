@@ -35,7 +35,7 @@
       <div class="container">
         <div class="starter-template">
           <h1>Corn Drone - Aerial Crop Monitoring System </h1>
-          <p class="lead">Sun Lab <br>A Project By Jane Doe.</p>
+          <p class="lead">Sun Lab <br>A Project By Firehiwot Gurara, Rahul Desai, Shinjini Biswas and Christine Chang.</p>
         </div>
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#intro">Introduction</a></li>
@@ -104,6 +104,7 @@
                   </ol>
                  </div>
               </p>
+             <img src="img/highlevelprojectblock.PNG" alt="commimg" style="width:80%;">
       </div>
  
 
@@ -151,11 +152,11 @@
                 <p style="text-align: justify;padding: 0px 30px;">The TX/RX pins of the RPi were connected to RX/TX pins of the breakout board respectively. This allows us to transmit data between the drone and the RPi. The baud rate ( the rate in which signals are signals are transmitted) the the communication on the RPi should be set to 57600 since the Pixhawk transmits signals at this rate. In addition, it is also important to ensure that there is a common ground between RPi and Pixhawk.</p>
                 
                 <p style="text-align: justify;padding: 0px 30px;">Once the hardware connections are setup correctly, the next step is to test if signals can be transmitted between the two devices.  In order to connect them we used Mavproxy software. The baud rate is set to 57600. The teletypewriter (tty) is USB0. --master specifies which port (serial, USB or network address/port) the UAV is communicating on. --baudrate specifies the baud rate and finally --aircraft specified the directory in which the log files for the drone are created. The Mavproxy software is run as a root user; therefore sudo -s should be used to switch from pi user to root user.</p>
-                <br>
-                sudo -s
-                <br>
-                mavproxy.py --master=/dev/ttyS0 --baudrate 57600 --aircraft MyCopter
-                <br>
+                
+                <p style="text-align: justify;padding: 0px 30px;">sudo -s</p>
+                
+                <p style="text-align: justify;padding: 0px 30px;">mavproxy.py --master=/dev/ttyS0 --baudrate 57600 --aircraft MyCopter </p>
+                
                <p style="text-align: justify;padding: 0px 30px;"> However this step didn’t work. In fact, we got a console message that the link between the two was “OK” when the common ground pins were disconnected. Otherwise it displays “Waiting for heartbeat” message. Heartbeat is a periodic signal that can be transmitted between devices. Typing “link” on the console once Mavproxy is running can show whether or not the link is ok.</p>
                 
                 <p style="text-align: justify;padding: 0px 30px;">We are not fully certain as to why the common ground issue gives error. However, at some point, we took apart the entire drone noticed that even though the breakout board is connected directly, the ground pins indicated on the breakout board do not go to the Pixhawk. We alternated between different ground pins and tested the connection, but this didn’t make a difference. Therefore, we switched to using another form of communication.</p>
@@ -164,8 +165,8 @@
              
                 <p style="text-align: justify;padding: 0px 30px;">Instead of using the TX/RX pins on the breakout board and RPi, we connected connected a USB port to the RPi and the corresponding power, ground, Data+ (D+) and Data-(D-) pins on the breakout board. We tested the connection using a different tty. However, still the communication didn’t work. There was also a common ground issue in this communication. </p>
                 
-                mavproxy.py --master=/dev/ttyUSB0 --baudrate 57600 --aircraft MyCopter
-                <br>
+                <p style="text-align: justify;padding: 0px 30px;">mavproxy.py --master=/dev/ttyUSB0 --baudrate 57600 --aircraft MyCopter </p>
+              
                 <h4>3. Direct connection with Pixhawk</h4>
                 
                 <p style="text-align: justify;padding: 0px 30px;">At this point we decided to take apart the drone and access the Pins directly. When we took it apart, we found out that there is a  microsub pin. Therefore, we planned on setting up a direct micro usb-usb connection between the raspberry pi and the pixhawk. </p>
@@ -188,15 +189,15 @@
              
                 <p style="text-align: justify;padding: 0px 30px;">In order to do this we first connected the RPi wifi to the wifi broadcasted from the controller (Sololink) and then accessed the wlan address by typing ifconfig  command from the console. We added this network address in the master command as shown below. </p>
                
-                mavproxy.py --master=udp:10.1.1.152:14550 --baudrate 57600 --aircraft MyCopter
+                <p style="text-align: justify;padding: 0px 30px;">mavproxy.py --master=udp:10.1.1.152:14550 --baudrate 57600 --aircraft MyCopter</p>
                 <br>
                 <p style="text-align: justify;padding: 0px 30px;">The universal datagram protocol (UDP) is a communication protocol that transfers short data packets called datagrams. This communication worked well for our test. The UDP address can also be modified depending on the wlan address. However, since the RPi will be flying with the drone, the RPi will lose communication with the controller and thus the drone if the drone flies further. The drone is able to communicate with the controller over longer distances since it can use radio communication if the wifi signal is not strong enough. Therefore, it may be necessary to switch to the direct micro usb - usb connection for the actual implementation of the project in the corn field.</p> 
           
                 <p style="text-align: justify;padding: 0px 30px;">We also tested this communication using Dronekit software which also worked when we used connect command with the right udp (wlan) address.</p> 
-                # Connect to the Vehicle (in this case a UDP endpoint)
-                <br>
-                vehicle = connect('10.1.1.152:14550', wait_ready=True)
-                <br>
+               <p style="text-align: justify;padding: 0px 30px;"> # Connect to the Vehicle (in this case a UDP endpoint)</p>
+               
+                <p style="text-align: justify;padding: 0px 30px;">vehicle = connect('10.1.1.152:14550', wait_ready=True)</p>
+                
         </div>
         
        <hr id='soft_setup'>
@@ -242,10 +243,11 @@
       <div style="text-align:center;">
               <h2>Software Design</h2>
               <h3> Raspberry Pi - Flame Spectrometer Interface </h3>
-              <p style="text-align: justify;padding: 0px 30px;">The payload on the drone consists of a ‘flame’ spectrometer which gets activated whenever the drone hovers above a specific location. Spectrometers are used to measure the intensity of light with respect to its electromagnetic spectrum, typically wavelength or frequency. The light reflected off the corn crop was to be analyzed using the spectra data collected from the spectrometer to study the plants growth patterns.
-              <br>
-              The spectrometer starts procuring the spectra data for that particular GPS coordinate and stores it in a csv file. The script when activated acquires the spectra data, optimizes the parameters received and then plots a light intensity plot consisting all the pixel values corresponding to the timestamp they were recorded.
-              <br>
+              <p style="text-align: justify;padding: 0px 30px;">The payload on the drone consists of a ‘flame’ spectrometer which gets activated whenever the drone hovers above a specific location. Spectrometers are used to measure the intensity of light with respect to its electromagnetic spectrum, typically wavelength or frequency. The light reflected off the corn crop was to be analyzed using the spectra data collected from the spectrometer to study the plants growth patterns.</p>
+             
+               <p style="text-align: justify;padding: 0px 30px;">The spectrometer starts procuring the spectra data for that particular GPS coordinate and stores it in a csv file. The script when activated acquires the spectra data, optimizes the parameters received and then plots a light intensity plot consisting all the pixel values corresponding to the timestamp they were recorded.</p>
+               <img src="img/Captureblock.PNG" alt="flowchart" style="width:80%;">
+             
               <h3>Challenges Faced:</h3>
               <p style="text-align: justify;padding: 0px 30px;">During the temperature data acquisition, there was an a need to switch from the seabreeze library to the pyusb and again switch back to seabreeze to reiterate and calculate the optimized integration time values. Resolving this problem took a lot of time, as care had to be taken so that the functions used to close the libraries and start them again did not affect the resources used.</p>
               
@@ -264,7 +266,7 @@
     <div style="text-align:center;">
            <h2>Final Integration and Testing</h2>
               <p style="text-align: justify;padding: 0px 30px;">Testing of the system was done in phases and can be differentiated into manual control and autonomous control. Before we test we encapsulate the entire system together to create the final integrated Drone-Pi-Spectrometer system. This was done by connecting the Flame to the Raspberry Pi with a USB connector and strapping the entire module onto the drone. The drone is calibrated with the help of the 3DR Handheld Controller. The Pi was booted up and signed into using a keyboard which was later unplugged. The wifi Dongle is also added onto it incase we wish to change the wifi network for debugging.</p>
-              <br>
+             
               <h3>Control Test:</h3>
               <p style="text-align: justify;padding: 0px 30px;">Our first test was simply starting the drone using the hand held controller and navigating randomly by using the sticks on the controller. This was a control test to make sure that the drone worked without error when guided using the manual throttle joysticks on the hand held controller. This provides a fallback option if autonomous controls fail or some controls malfunction where we can gain manual control and drive the drone and its expensive payload to safety avoiding a crash.</p>
               <h3>Communication Test:</h3>
@@ -275,7 +277,7 @@
              <h3>Integrated Communication Test:</h3>
              <p style="text-align: justify;padding: 0px 30px;">We proceed forward by testing the integrated code that incorporates the spectrometer data acquisition program into our main drone program. This was designed such that whenever the drone successfully recognises a predefined point it will call the spectrometer code to start its data collection. We tested this while manually guiding the drone to each point and checking if the spectrometer code ran once the location was detected by the drone. We had to ensure that we run the spectrometer code only once for each position. This was achieved in the code design with the help of flags. Next we had to ensure that the main drone code did not interrupt the spectrometer code while it was taking the data. For this we has to reorganise the spectrometer code to run as a function which is called when a point is reached. The main challenge for this was that the spectrometer code ran only for the first point and not for the rest. This was resolved by editing the spectrometer code to return counter variables to their initial value after completion of the program.</p>
              
-             <h3>Autonomous Flight Test:,</h3>
+             <h3>Autonomous Flight Test:</h3>
              <p style="text-align: justify;padding: 0px 30px;">Finally we test if we can fly the drone autonomously by designing a flight plan to desired points. For this we have to set a few GPS coordinates for the drone to reach. These points are called waypoints (WPs). We can easily specify these in the Mission Planner Software The only problem here was that we could not get the satellite map imaging of the field. Thus in order to fix the coordinates that corresponded to home as the launch position we used our phone GPS to verify and also run the drone code. We added 2 WPs and configured the plan to return to launch position after finishing the plan. This file was saved, loaded and written onto the drone. Then when the drone is armed and allowed to begin action it flies to the desired locations and returns to the launch site. The landing is preset with the drone where it hovers over the launch position and slowly descends vertically until it reaches the ground.</p>
              <p style="text-align: justify;padding: 0px 30px;">Next we wanted to test if we can gain back manual control while the drone was already in an autonomous flight plan. So we ran the mission again but before the drone could complete the route we started controlling it with the hand held controller. This worked but once it was under manual control it was not possible to get it to return to autonomous mode and complete its route. </p>
              <p style="text-align: justify;padding: 0px 30px;">Finally we wanted to test if we can make the drone hover at the desired waypoints. This was done by setting up delays at each waypoint. This worked successfully at all points. We also decreased the speed of the drone to fly slower to each position.</p>
@@ -296,21 +298,19 @@
           <h2>Work Distribution</h2>
           <div style="text-align:center;">
           <h3>Meet the Team</h3>
-              <img class="img-rounded" src="pics/group.jpg" alt="Generic placeholder image" style="width:80%;">
+              <img src="img/group.jpg" alt="grouppic" style="width:80%;">
+              <p> L-R: Christine, Shinjini, Rahul, Firehiwot</p>
               
-              <h4>Project group picture</h4>
-          </div>
-          <div class="col-md-6" style="font-size:16px">
-              <img class="img-rounded" src="pics/a.png" alt="Generic placeholder image" width="240" height="240">
-              <h3>Rick</h3>
-              <p class="lead">netid@cornell.edu</p>
-              <p>Designed the overall software architecture (Just being himself).
-          </div>
-          <div class="col-md-6" style="font-size:16px">
-              <img class="img-rounded" src="pics/b.png" alt="Generic placeholder image" width="240" height="240">
-              <h3>Morty</h3>
-              <p class="lead">netid@cornell.edu</p>
-              <p>Tested the overall system.
+              <ul>
+                 <li> Christine Chang, cyc54@cornell.edu: The brains behind the project and guided us through out the project.</li>
+                 <li> Shinjini Biswas, sb2448@cornell.edu: Integration of both interfacing programs and testing of the final system.</li>
+                 <li> Rahul Desai, rd542@cornell.edu: Implemented the Raspberry Pi - Flame spectrometer interfacing.</li>
+                 <li> Firehiwot Gurara, fwg24@cornell.edu: Incharge of system setup, and integration of the Raspberry Pi - Drone Interface.</li>
+                 </ul>
+                 <p style="text-align: justify;padding: 0px 30px;">Inspite of all of their individual specialities everyone contributed equally and had a lot of fun!!</p>
+                 
+              
+              
           </div>
       </div>
 
@@ -354,20 +354,20 @@
 
       <div class="row">
               <h2>Code Appendix</h2>
-      <b>Intial setup check code</b>
+      <b>Intial setup check code:</b>
       <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone.py">hello_drone.py </a>
       <br>
-      <b>Integrated code</b>        
+      <b>Integrated code:</b>        
       <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_guided.py">hello_drone_guided.py</a>
       <br>
-      <b> Hello Drone code with waypoint setup </b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hell_drone_man.py: </a>
+      <b> Hello Drone code with waypoint setup: </b>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hell0_drone_man.py </a>
       <br>
-      <b> Flame code for temperuature measurement</b>
+      <b> Flame code for temperuature measurement:</b>
       <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_control.py">flame_control.py </a>
       <br>
-      <b> Flame control code</b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Code /flame_qep_controller_v3updated.py">flame_control.py</a>
+      <b> Flame control code:</b>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Code/flame_qep_controller_v3updated.py">flame_control.py</a>
       
       </div>
 
