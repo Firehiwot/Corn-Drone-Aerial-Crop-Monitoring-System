@@ -248,6 +248,14 @@
               <br>
               During the integration between the seabreeze code and the pyusb temperature code, it was decided to develop a separate script for the temperature procurement because there was a need to reinitialize the spectrometer before passing the respective usb command to it. A separate script to initialize the spectrometer, get the temperature data from the flame spectrometer and release the resources isolated the scripts thereby making it easier to debug the code. This script was imported to the seabreeze spectrometer script and called as a function.</p>  
             </div>
+            <h3>Drone - Raspberry Pi Interface</h3>
+            <p style="text-align: justify;padding: 0px 30px;">A python code that uses dronekit commands was used to control the motion of the drone. In this code we first connect the drone and the RPi and check initial configurations such as location and  battery status. Doing this allows the user to check system settings before creating mission and flying the drone.</p>
+            <p style="text-align: justify;padding: 0px 30px;">The missions are created in the form of list that sets waypoints using “Command “command. These waypoint lists are later added into one big list and uploaded on the drone. Each way point list is used to configure a command such us takeoff or return to launch, create a condition delay or no delay and set latitude, longitude and altitude. The drone mode must be set to auto in order to use the waypoints for setting up the drone motion. </p>
+            <p style="text-align: justify;padding: 0px 30px;">In the hello_drone_guided.py code we manually set three gps points since waypoints can be used when the drone is flying. In our demo and initial test, we didn’t fly the drone. Therefore, we measured the gps latitude and longitude values for preset locations. We used three points for the measurement.</p>
+            
+            <h3>Integrated software</h3>
+            <p style="text-align: justify;padding: 0px 30px;">The integrated software is designed so that it imports the flame controller code and calls the measure function in the flame controller code to start measuring. The measure function is called whenever the drone is within the radius of the GPS point. The GPS point is set by using the latitude and longitude values at that point. If the drone is outside this radius range then there will be no measurement.</p>
+            <p style="text-align: justify;padding: 0px 30px;">For the initial test the drone is given preset way point: home, A and B for this case. During the actual test, a mission will be created with preset longitude and latitude values. These points will be randomized so that the drone moves between different way points in different patterns.</p>
       </div>
 
     <hr id='testing'>
@@ -305,25 +313,37 @@
           </div>
       </div>
 
-    <hr>
-      <div style="font-size:18px">
-          <h2>Parts List</h2>
-          <ul>
-              <li>Raspberry Pi $35.00</li>
-              <li>Raspberry Pi Camera V2 $25.00</li>
-              <a href="https://www.adafruit.com/product/1463"><li>NeoPixel Ring - $9.95</li></a>
-              <li>LEDs, Resistors and Wires - Provided in lab</li>
-          </ul>
-          <h3>Total: $69.95</h3>
-      </div>
-      <hr>
-      <div style="font-size:18px">
+
+    <div style="font-size:18px">
           <h2>References</h2>
-          <a href="https://picamera.readthedocs.io/">PiCamera Document</a><br>
-          <a href="http://www.micropik.com/PDF/SG90Servo.pdf">Tower Pro Servo Datasheet</a><br>
-          <a href="http://getbootstrap.com/">Bootstrap</a><br>
-          <a href="http://abyz.co.uk/rpi/pigpio/">Pigpio Library</a><br>
-          <a href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/">R-Pi GPIO Document</a><br>
+          
+          <p><b> Drone kit </b><a href="http://python.dronekit.io/guide/taking_off.html"Python Dronekit Guide</a>
+          <br>
+          <a href="http://python.dronekit.io/guide/connecting_vehicle.html#get-started-connecting">Connecting through dronekit</a>
+          <br>
+          <a href="http://python.dronekit.io/automodule.html">Dronekit API reference</a>
+          <br>
+          <b>Planning mission</b>
+          <br>
+          <a href="https://ardupilot.github.io/MAVProxy/html/modules/misseditor.html">Mavproxy mission editor</a>
+          <br>
+          <a href="http://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html">Planning mission using waypoints</a>
+          <br>
+          <b> Radio calibration</b>
+          <br>
+          <a href="http://ardupilot.org/planner2/docs/radio-calibration.html">Radio calibration drone</a> 
+          <br>
+          <b>Firmware setup</b>
+          <br>
+          <a href="http://ardupilot.org/copter/docs/common-loading-firmware-onto-pixhawk.html">Installing firmware for Pixhawk</a>
+          <br>
+          <b> Python Seabreeze </b>
+          <br>
+          <a href="https://github.com/ap--/python-seabreeze">Python seabreeze Github link</a>
+          <br>
+          <b>Breakout board </b>
+          <br>
+          <a href="https://store.brownieboards.com/product/3dr-solo-breakout-board/">Breakout board order site</a></p>
 
       </div>
 
