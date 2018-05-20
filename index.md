@@ -64,25 +64,24 @@
 
       <div style="text-align:center;">
               <h2>Introduction</h2>
-              <p style="text-align: left;padding: 0px 30px;">Quick and reliable detection of plant performance is one extremely crucial tool for agriculturists and researchers of plant sciences. In most cases this requires manual investigation of the crop by physically checking each plant making the process long, cumbersome and prone to human error. This is especially difficult when tall crops like corn are grown in large fields. Optimization of this process would allow farmers to be more aware of the crop quality and be able to implement changes more promptly increasing economic yield and reducing wastage of resources. Researchers have found that when a particular plant is struggling it reflects wavelengths from across the spectrum which are different from their thriving counterparts. Dynamic monitoring of these differences will help obtain plant distress signals. By using a spectrometer coupled with a drone, communicating with the help of a raspberry Pi we present a method of aerial data collection for faster, accurate and large scale detection of plant distress and enhance plant monitoring.</p>
+              <p style="text-align: justify;padding: 0px 30px;">Quick and reliable detection of plant performance is one extremely crucial tool for agriculturists and researchers of plant sciences. In most cases this requires manual investigation of the crop by physically checking each plant making the process long, cumbersome and prone to human error. This is especially difficult when tall crops like corn are grown in large fields. Optimization of this process would allow farmers to be more aware of the crop quality and be able to implement changes more promptly increasing economic yield and reducing wastage of resources. Researchers have found that when a particular plant is struggling it reflects wavelengths from across the spectrum which are different from their thriving counterparts. Dynamic monitoring of these differences will help obtain plant distress signals. By using a spectrometer coupled with a drone, communicating with the help of a raspberry Pi we present a method of aerial data collection for faster, accurate and large scale detection of plant distress and enhance plant monitoring.</p>
       </div>
 
     <hr id='obj'>
-
-          <div class="col-md-6" style="font-size:15px;">
-              <h2>Web Framework</h2>
-              <br>
-              <br>
-              <p>The web server was developed under “Flask” framework. Within the framework, several functionalities like log-in/out, video streaming, R-Pi GPIO-controlling, voice message playback and new message notification were implemented. For log-in/out, it "render" between web pages after user-id and password were correctly entered or log-out button was pressed. MJPG library was used to continuously send JPEG pictures captured by PiCamera to web, the key technique for video streaming. GPIO-controlling was realized by implementing Javascript for a door-controlling button. Once the button was pressed, a “POST” message would be sent from template to web server, the servo-controlling function therefore was called to open the door. Voice playback was implemented by fetching audio files recorded at back end. New message notification was implemented by messaging function, which keeps updating the states of the "knock-knock" and "leave voice message" modes at back end. When new messages pops, a red dot would appear accordingly in the side bar to notify the user.</p>
-          </div>
-
-          <br>
-
-          <div class="col-md-6" style="text-align:center;">
-              <img class="img-rounded" src="static/image/web.jpg" alt="Generic placeholder image" width="540" height="410">
-              <h5>Web Voice Message Page</h5>
-          </div>
-      </div>
+  
+    <div style="text-align:center;">
+             <h2>Project Objectives</h2>
+             <div class="col-md-6" style="font-size:15px;">
+             <img class="img-rounded" src="static/image/web.jpg" alt="Generic placeholder image" width="540" height="410">
+             </div>
+             <div class="col-md-6" style="font-size:15px;">
+                <ul>
+                   <li>Gathering hyperspectral data at predetermined points on a corn field with the help of an autonomous unmanned aerial vehicle (UAV).</li>
+                   <li>Set up robust communications between the UAV, the spectrometer and the RPi to enable flight over extended distances without delay or loss of network.</li>
+                   <li>Interfacing the spectrometer with the RPi to procure and plot crucial data of wavelength reflections from each crop region for detection of plant distress signals.<li>
+                </ul>
+             </div>
+    </div>
 
     <hr id='hard_design'>
 
