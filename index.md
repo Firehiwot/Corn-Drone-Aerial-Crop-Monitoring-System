@@ -199,8 +199,8 @@
        <hr id='soft_setup'>
        
        <div style="text-align:center;">
-              <h3>Software Setup</h3>
-              <h4>1. Mavproxy</h4>
+              <h2>Software Setup</h2>
+              <h3>1. Mavproxy</h3>
               <p style="text-align: justify;padding: 0px 30px;">Mavproxy is a ground control station (GCS) application for drones and other unmanned aerial vehicles (UAVs). It mainly uses command-line interface unlike other graphic based mission control softwares. Pymavlink allows us to use visual tools for realtime and offline data analysis and plotting.</p>
               <p style="text-align: justify;padding: 0px 30px;">In order to download the mavproxy package we followed the following steps:</p>
               <p style="text-align: justify;padding: 0px 30px;">sudo apt-get update    #Update the list of packages in the software center</p>
@@ -211,17 +211,17 @@
               <p style="text-align: justify;padding: 0px 30px;">The future application allows for easy interfacing between raspberry pi 2 and 3. It allows to convert a python2 or 3 code to a code that is compatible with both. We may not necessarily use this application, but we downloaded it incase if it is necessary at  some point during the project.</p>
               <p style="text-align: justify;padding: 0px 30px;">4. sudo pip install pymavlink</p>
               <p style="text-align: justify;padding: 0px 30px;">5. sudo pip install mavproxy</p>
-           <h4>2. Mission planner</h4>
+           <h3>2. Mission planner</h3>
             <p style="text-align: justify;padding: 0px 30px;">The mission planner software was installed after we encountered communication issues using the Mavproxy software. This mission planner has features that enabled us to have a better understanding of the calibration system for the drone, simulate drone motion, create a mission for drone flight and locate where the drone is using the gps and compass sensors in the drone.</p>
              <p style="text-align: justify;padding: 0px 30px;">After the mission planner is downloaded and connected to the drone using COM port. There are initial setups that need to be done before the flying the drone using this software. On of the first setup is updating the firmware in the drone and controller. We used a manual download  and update of the firmware in the drone, but it is also possible to do it from the solo link mobile app.</p>
              
-            <h4>3. Drone kit</h4>
+            <h3>3. Drone kit</h3>
             <p style="text-align: justify;padding: 0px 30px;">Drone kit is another python based ground control station software. This software allowed us to write python code to control drone motion and integrate it with the RPi. To install drone kit software</p>
             <p style="text-align: justify;padding: 0px 30px;">sudo apt-get install python-pip python-dev python-numpy python-opencv python-serial python-pyparsing python-wxgtk2.8 libxml2-dev libxslt-dev</p>
             <p style="text-align: justify;padding: 0px 30px;">sudo pip install droneapi</p>
             <p style="text-align: justify;padding: 0px 30px;">echo "module load droneapi.module.api" >> ~/.mavinit.scr</p>
             <p style="text-align: justify;padding: 0px 30px;">If the applications are already installed, step 1 is not necessary.</p>              
-          <h3>Calibration</h3>
+          <h2>Calibration</h2>
           <p style="text-align: justify;padding: 0px 30px;">The sensors in the drone need to be calibrated properly before flight. The three major calibrations that need to be done for the drone are level calibration, radio calibration and compass calibration.</p>
           <p style="text-align: justify;padding: 0px 30px;">Level calibration: the level calibration must be done from a level surface; otherwise it gives error. The mobile app gives prompt that tells us in which direction to place the drone on the floor. The front side of the drone should be facing exactly the same direction in which the calibrating person is facing. This calibration is important so that the drone sensors can know which way is front, back, left,right, up and down.</p>
           <p style="text-align: justify;padding: 0px 30px;">Compass calibration: The compass calibration is done from the mission planner because it gives a better graphical view of the number of samples taken in order to identify the compass directions. The average number of samples we took is around 800 but less number of samples could work too. After the calibration, it is good to check whether the mission planner app actually faces north when the drone faces the north direction.</p>
@@ -241,12 +241,10 @@
               <br>
               The spectrometer starts procuring the spectra data for that particular GPS coordinate and stores it in a csv file. The script when activated acquires the spectra data, optimizes the parameters received and then plots a light intensity plot consisting all the pixel values corresponding to the timestamp they were recorded.
               <br>
-              <br>
-              <h4>Challenges Faced:</h4>
-              <br>
-              During the temperature data acquisition, there was an a need to switch from the seabreeze library to the pyusb and again switch back to seabreeze to reiterate and calculate the optimized integration time values. Resolving this problem took a lot of time, as care had to be taken so that the functions used to close the libraries and start them again did not affect the resources used.
-              <br>
-              During the integration between the seabreeze code and the pyusb temperature code, it was decided to develop a separate script for the temperature procurement because there was a need to reinitialize the spectrometer before passing the respective usb command to it. A separate script to initialize the spectrometer, get the temperature data from the flame spectrometer and release the resources isolated the scripts thereby making it easier to debug the code. This script was imported to the seabreeze spectrometer script and called as a function.</p>  
+              <h3>Challenges Faced:</h3>
+              <p style="text-align: justify;padding: 0px 30px;">During the temperature data acquisition, there was an a need to switch from the seabreeze library to the pyusb and again switch back to seabreeze to reiterate and calculate the optimized integration time values. Resolving this problem took a lot of time, as care had to be taken so that the functions used to close the libraries and start them again did not affect the resources used.</p>
+              
+              <p style="text-align: justify;padding: 0px 30px;">During the integration between the seabreeze code and the pyusb temperature code, it was decided to develop a separate script for the temperature procurement because there was a need to reinitialize the spectrometer before passing the respective usb command to it. A separate script to initialize the spectrometer, get the temperature data from the flame spectrometer and release the resources isolated the scripts thereby making it easier to debug the code. This script was imported to the seabreeze spectrometer script and called as a function.</p>  
             </div>
             <h3>Drone - Raspberry Pi Interface</h3>
             <p style="text-align: justify;padding: 0px 30px;">A python code that uses dronekit commands was used to control the motion of the drone. In this code we first connect the drone and the RPi and check initial configurations such as location and  battery status. Doing this allows the user to check system settings before creating mission and flying the drone.</p>
@@ -317,7 +315,7 @@
     <div style="font-size:18px">
           <h2>References</h2>
           
-          <p><b> Drone kit </b><a href="http://python.dronekit.io/guide/taking_off.html"Python Dronekit Guide</a>
+          <p><b> Drone kit </b><a href="http://python.dronekit.io/guide/taking_off.html">Python Dronekit Guide</a>
           <br>
           <a href="http://python.dronekit.io/guide/connecting_vehicle.html#get-started-connecting">Connecting through dronekit</a>
           <br>
