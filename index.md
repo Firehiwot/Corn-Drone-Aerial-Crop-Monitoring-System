@@ -120,6 +120,8 @@
                 Step 1: Turnoff serial console 
                 <br>
                 Before we started the communication setup, we turned off the serial console in the RPI. The serial console allows us to connect between other computers and the RPi to access the linux console that displays system settings during boot. This is important to check and fix problems during boot or while logging onto the RPi. If this is not turned off it can interfere with the signal that is sent between the RPi and the drone. It is important to note that we only disabled the setting that allows the login shell to be accessible over seria; the serial hardware communication is not disabled. 
+              </div>
+              <div style="text-align:left;">
                 <br>
                 The serial console can be turned off in two ways:
                 <br>
@@ -131,6 +133,8 @@
                   <li> You will be asked the first question below and select No</li>
                   <li> Select Yes for the second question</li>
                 </ul>
+               </div>
+               <div style="text-align:justify;">
                 2. From desktop:
                 <br>
                 From the desktop screen click on the RPi logo, click on Preferences and then select RaspberyPi configuration. Select disable button for Serial. 
@@ -189,6 +193,7 @@
                 <br>
                 vehicle = connect('10.1.1.152:14550', wait_ready=True)
                 <br>
+               </div>
               </div>
         </div>
 
@@ -197,7 +202,12 @@
 
       <div style="text-align:center;">
               <h2>Software Design</h2>
-              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
+              <div style="text-align:left;">
+              <h3> Raspberry Pi - Flame Spectrometer Interface </h3>
+              <p style="text-align: justify;padding: 0px 30px;">The payload on the drone consists of a ‘flame’ spectrometer which gets activated whenever the drone hovers above a specific location. Spectrometers are used to measure the intensity of light with respect to its electromagnetic spectrum, typically wavelength or frequency. The light reflected off the corn crop was to be analyzed using the spectra data collected from the spectrometer to study the plants growth patterns.
+              <br>
+              The spectrometer starts procuring the spectra data for that particular GPS coordinate and stores it in a csv file. The script when activated acquires the spectra data, optimizes the parameters received and then plots a light intensity plot consisting all the pixel values corresponding to the timestamp they were recorded.</p>
+            </div>
       </div>
 
     <hr id='testing'>
