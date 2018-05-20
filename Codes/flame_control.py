@@ -1,7 +1,7 @@
-# Python 3.6.4
+# Python 2.70
 #
 # Based on Cornell_Uni_IMACSS_v9.5-170505.cr1 from Lianhong Gu, ORNL, last revision July 24 2017
-# Script by Christine Y. Chang, Cornell University
+# Script by Christine Y. Chang, Rahul Desai, Shinjini Biswas and Firehiwot Gurara Cornell University
 # Project start date: February 22, 2018
 # Last revision: 180320
 
