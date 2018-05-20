@@ -104,7 +104,8 @@
               <h2>Communication Setup</h2>
               <p style="text-align: left;padding: 0px 30px;">
               
-<p> We used three different approaches to setup communication between the Pixhawk and the RPi. The Pixhawk is the flight controller hardware embedded in the drone that contains ARM processor, sensors, power system control, and communication interfaces such as serial ports, I2C, USB and SPI. </p>
+We used three different approaches to setup communication between the Pixhawk and the RPi. The Pixhawk is the flight controller hardware embedded in the drone that contains ARM processor, sensors, power system control, and communication interfaces such as serial ports, I2C, USB and SPI. 
+</p>
 
 <p>
 <b> Step 1: Turnoff serial console </b>
