@@ -351,16 +351,20 @@
 
       <div class="row">
               <h2>Code Appendix</h2>
-              
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_guided.py">hello_drone_guided.py:Integrated code</a>
+      <b>Intial setup check code</b>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone.py">hello_drone.py </a>
       <br>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone.py">hello_drone.py: Intial setup check code</a>
+      <b>Integrated code</b>        
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_guided.py">hello_drone_guided.py</a>
       <br>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hell_drone_man.py: Hello Drone code with waypoint setup</a>
+      <b> Hello Drone code with waypoint setup </b>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hell_drone_man.py: </a>
       <br>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_control.py">flame_control.py: Flame code for temperuature measurement</a>
+      <b> Flame code for temperuature measurement</b>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_control.py">flame_control.py </a>
       <br>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Code /flame_qep_controller_v3updated.py">flame_control.py: Flame control code</a>
+      <b> Flame control code</b>
+      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Code /flame_qep_controller_v3updated.py">flame_control.py</a>
       
       </div>
 
