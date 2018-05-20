@@ -296,71 +296,55 @@
             
              
       </div>
-
-    <hr id='futurework'>
+      
+       <hr id='result'>
 
       <div style="text-align:center;">
-              <h2>Future Work</h2>
-              <p style="text-align: justify;padding: 0px 30px;">In this project, we were able to successfully communicate between drone and RPi, integrate the code that measures the spectrometer data and sets up drone motion and finally use these in order to take measurements in a field. We also tested the autonomous and guided drone flight in the corn field using mission planner software. The flame code is also scalable to the QE Pro spectrometer. </p>
-              <p style="text-align: justify;padding: 0px 30px;">Currently, we are using polling loop to take measurements. In the future, it is useful to use interrupts so that we don’t waste processor cycle. We are currently minimizing this by adding a delay of 1 second before each loop iteration. In addition, the drone motion should be tested by using waypoints and autonomous motion. Even though the PiTFT is placed on the bottom side, it could be useful to have a graphical interface that can allow the user to start the drone motion directly by pressing a button from the RPi screen.</p>
-              <p style="text-align: justify;padding: 0px 30px;">An app that can allow controlling motion of the drone will also be useful so that the drone motion can be controlled from a mobile phone. In addition, there is also a possibility that the drone controller can be configured so that there is a direct communication between the controller and the RPi instead of the drone and the RPi. This can help us to tackle the challenge of losing control of the RPi once the drone moves farther from its home point.</p>
-              <p style="text-align: justify;padding: 0px 30px;">Setting up the drone so that the user can tell it when to take measurements after setting its motion until a certain point. This allows the user to have control over the drone motion and measurement in real time instead of presetting GPS points. In addition having a modular code that can allows the user to integrate other sensors or use camera for taking pictures of the field will be helpful. The final system set up should work form a bigger drone.</p>
+              <h2>Result</h2>
+              <p style="text-align: left;padding: 0px 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem nulla, consectetur at leo vel, pretium bibendum nisl. Cras blandit quam a enim ultrices, eu convallis enim posuere. Donec eleifend enim sed purus consectetur, vitae cursus lectus varius. Vivamus consectetur felis nec est venenatis posuere. Phasellus vitae aliquet erat. In laoreet lacinia mollis. Quisque iaculis nisl fermentum pharetra lobortis. Donec rhoncus dui sem, ac molestie leo tristique vel. Phasellus in nibh feugiat, fringilla lectus in, elementum magna. Etiam quis dui condimentum, tempus ex in, dapibus est. Cras ut congue augue. Donec ac enim ex. Ut id tristique risus, vel porttitor quam. Sed ultricies enim eu nibh porttitor, vel sodales enim feugiat. Fusce volutpat venenatis magna ac ultrices. Curabitur eget urna ut nulla mattis convallis non eu diam.</p>
       </div>
+
+    <hr>
 
     <div class="row" style="text-align:center;">
           <h2>Work Distribution</h2>
           <div style="text-align:center;">
-          <h3>Meet the Team</h3>
-              <img src="img/group.jpg" alt="grouppic" style="width:80%;">
-              <p> L-R: Christine, Shinjini, Rahul, Firehiwot</p>
-              
-              <ul style= "text-align: left;">
-                 <li> Christine Chang, cyc54@cornell.edu: The brains behind the project.</li>
-                 <li> Shinjini Biswas, sb2448@cornell.edu: Integration of both interfacing programs and testing of the final system.</li>
-                 <li> Rahul Desai, rd542@cornell.edu: Implemented the Raspberry Pi - Flame spectrometer interfacing.</li>
-                 <li> Firehiwot Gurara, fwg24@cornell.edu: Incharge of system setup, and integration of the Raspberry Pi - Drone Interface.</li>
-                 </ul>
-                 <p style="text-align: justify;padding: 0px 30px;">Inspite of all of their individual specialities everyone contributed equally and had a lot of fun!!</p>
-                 
-              
-              
+              <img class="img-rounded" src="pics/group.jpg" alt="Generic placeholder image" style="width:80%;">
+              <h4>Project group picture</h4>
+          </div>
+          <div class="col-md-6" style="font-size:16px">
+              <img class="img-rounded" src="pics/a.png" alt="Generic placeholder image" width="240" height="240">
+              <h3>Rick</h3>
+              <p class="lead">netid@cornell.edu</p>
+              <p>Designed the overall software architecture (Just being himself).
+          </div>
+          <div class="col-md-6" style="font-size:16px">
+              <img class="img-rounded" src="pics/b.png" alt="Generic placeholder image" width="240" height="240">
+              <h3>Morty</h3>
+              <p class="lead">netid@cornell.edu</p>
+              <p>Tested the overall system.
           </div>
       </div>
 
-
-    <div style="font-size:18px">
+    <hr>
+      <div style="font-size:18px">
+          <h2>Parts List</h2>
+          <ul>
+              <li>Raspberry Pi $35.00</li>
+              <li>Raspberry Pi Camera V2 $25.00</li>
+              <a href="https://www.adafruit.com/product/1463"><li>NeoPixel Ring - $9.95</li></a>
+              <li>LEDs, Resistors and Wires - Provided in lab</li>
+          </ul>
+          <h3>Total: $69.95</h3>
+      </div>
+      <hr>
+      <div style="font-size:18px">
           <h2>References</h2>
-          
-          <p><b> Drone kit </b>
-          <br>
-          <a href="http://python.dronekit.io/guide/taking_off.html">Python Dronekit Guide</a>
-          <br>
-          <a href="http://python.dronekit.io/guide/connecting_vehicle.html#get-started-connecting">Connecting through dronekit</a>
-          <br>
-          <a href="http://python.dronekit.io/automodule.html">Dronekit API reference</a>
-          <br>
-          <b>Planning mission</b>
-          <br>
-          
-          <a href="https://ardupilot.github.io/MAVProxy/html/modules/misseditor.html">Mavproxy mission editor</a>
-          <br>
-          <a href="http://ardupilot.org/copter/docs/common-planning-a-mission-with-waypoints-and-events.html">Planning mission using waypoints</a>
-          <br>
-          <b> Radio calibration</b>
-          <br>
-          <a href="http://ardupilot.org/planner2/docs/radio-calibration.html">Radio calibration drone</a> 
-          <br>
-          <b>Firmware setup</b>
-          <br>
-          <a href="http://ardupilot.org/copter/docs/common-loading-firmware-onto-pixhawk.html">Installing firmware for Pixhawk</a>
-          <br>
-          <b> Python Seabreeze </b>
-          <br>
-          <a href="https://github.com/ap--/python-seabreeze">Python seabreeze Github link</a>
-          <br>
-          <b>Breakout board </b>
-          <br>
-          <a href="https://store.brownieboards.com/product/3dr-solo-breakout-board/">Breakout board order site</a></p>
+          <a href="https://picamera.readthedocs.io/">PiCamera Document</a><br>
+          <a href="http://www.micropik.com/PDF/SG90Servo.pdf">Tower Pro Servo Datasheet</a><br>
+          <a href="http://getbootstrap.com/">Bootstrap</a><br>
+          <a href="http://abyz.co.uk/rpi/pigpio/">Pigpio Library</a><br>
+          <a href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/">R-Pi GPIO Document</a><br>
 
       </div>
 
@@ -368,26 +352,20 @@
 
       <div class="row">
               <h2>Code Appendix</h2>
-      <b>Intial setup check code:</b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone.py">hello_drone.py </a>
-      <br>
-      <b>Integrated code:</b>        
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_guided.py">hello_drone_guided.py</a>
-      <br>
-      <b> Hello Drone code with waypoint setup: </b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/hello_drone_man.py">hello_drone_man.py </a>
-      <br>
-      <b> Flame code for temperuature measurement:</b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_control.py">temperature_control.py </a>
-      <br>
-      <b> Flame control code:</b>
-      <a href="https://github.com/Firehiwot/ECE5725-Agriculture-Drone-Project/blob/master/Codes/flame_qep_controller_v3updated.py">flame_control.py</a>
-      
+              <pre><code>
+// Hello World.c
+int main(){
+  printf("Hello World.\n");
+}
+              </code></pre>
       </div>
 
     </div><!-- /.container -->
 
-<!-- Bootstrap core JavaScript
+
+
+
+    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -395,6 +373,11 @@
     <script src="dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
- 
+  
+  </body>
+</html>
+
+
+   
      </body>
     </html>
