@@ -1,0 +1,172 @@
+#!/usr/bin/python
+# adapted from : http://python.dronekit.io/guide/taking_off.html
+print ("Start code for drone motion")
+from dronekit import connect, VehicleMode, LocationGlobalRelative, LocationGlobal, Command
+import sys , random , time
+from pymavlink import mavutil
+import math
+import flame_qep_controller_v3updated as spectr
+
+drone = connect("udp:10.1.1.152:14550",wait_ready=True)
+battery_threshold=20
+
+# intial setting check
+print("Initial setting check for drone")
+print("GPS:"+ str(drone.gps_0))
+print("Battery level:" + str(drone.battery.level))
+print ("Is Armable?:" + str(drone.is_armable))
+print("System status:" +str(drone.system_status.state))
+print("Mode:" + str(drone.mode.name)) # gives information about flight mode: guided, loiter, autonomous...
+print ("Altitude:" + str(drone.attitude)) # gives pitch, yaw and roll values
+print ("Velocity:" + str(drone.velocity))
+print ("Global Location:" + str(drone.location.global_frame))
+print ("Global Location-Relative Altitude" + str(drone.location.global_relative_frame))
+print ("Local Location" +   str(drone.location.local_frame))
+print ("Groundspeed:" + str(drone.groundspeed))
+print ("Airspeed:" + str(drone.airspeed))
+
+drone.airspeed =0.5
+drone.groundspeed = 0
+
+#choose random values for 
+def randomize(latA, latB):
+    lat_list= [latA, latB]
+    random.shuffle(lat_list)
+    return lat_list[0]
+
+##distance from waypoints##
+def get_distance_meters(loc1, loc2):
+    lat1=  math.radians(loc1.lat)
+    lat2 = math.radians(loc2.lat)
+    long1 = math.radians(loc1.lon)
+    long2= math.radians(loc2.lon)
+    R= 6373
+    dlat = lat2 - lat1
+    dlong = long2 - long1
+    
+    a = (math.sin(dlat/2))**2 + math.cos(lat1)*math.cos(lat2)* (math.sin(dlong/2))**2
+    c= 2*math.atan2(math.sqrt(a),math.sqrt(1-a))
+    distance = R*c
+    return distance/1000
+
+def distance_to_waypoint(nxt):
+    nxt = drone.commands.next
+    if nxt == 0:
+        return 0 # home
+    item = drone.commands[nxt]
+    lat = item.x
+    long = item.y
+    alt = item.z
+    targetwaypointlocation = LocationGlobalRelative(lat,long,alt)
+    print ("AT___________"+ str(drone.location.global_frame))
+    distance = get_distance_meters(drone.location.global_frame, targetwaypointlocation)
+    return distance
+
+# exit if battery status is too low
+if (drone.battery.level)<= battery_threshold:
+    print ("Battery is low: can't start flight")
+    sys.exit()
+##    
+
+
+# download and clear previous commands in the drone
+cmds = drone.commands
+cmds.download()
+cmds.wait_ready() # wait until download is complete
+cmds.clear()
+
+# preset gps locaitons for drone
+
+h_lat=42.4487249
+h_long=-76.4769787
+latA=42.4490805
+longA=-76.4775335
+latB=42.4484995
+longB=-76.4775596
+
+96
+drone.airspeed =0.5
+drone.groundspeed=0.5
+# create way points
+#mav_util_nav_waypoint: navigate to specified position
+# mav_frame_global_relative: sets altitude as relative to home position( home_position=0)
+num_of_waypoints = 4
+
+waypoint = []
+# create home waypoin
+
+###Checks if configuration is correct for the drone to be armed###
+##while (drone.is_armable==False):
+##    print ("Waiting for drone to be armed")
+##    time.sleep(1)
+    
+drone.mode=VehicleMode("GUIDED")
+#drone.armed=True
+
+##Checks if drone was successfully armed##
+#while not drone.armed:
+ #   print ("Waiting for arming")
+  #  time.sleep(1)
+
+def callback():
+    print ("#####################################")
+    spectr.measure()
+    
+##def callback2()
+##    break
+
+status = 'O'
+while True:
+    time.sleep(1)
+    print ("Status Value @@#%#%#$##$@@#@#@#@#@# " + status)
+    curr_lat = drone.location.global_frame.lat
+    curr_lon = drone.location.global_frame.lon
+    if (abs(curr_lat - h_lat)<= 0.0001000) and (abs(curr_lon - h_long)<= 0.0000700):
+        if (status != "home"):
+            status = "home"
+            #time.sleep(35)
+            print("Spectrometer started at home")
+            callback()
+            print("home " + str(curr_lat)+ "lat, " + str(curr_lon)+"lon")
+            
+    elif (abs(curr_lat- latA)<= 0.0001000) and (abs(curr_lon- longA)<= 0.0001000):
+        if (status != "A"):
+            status = "A"
+            #time.sleep(5)
+            print("Spectrometer started at A")
+            callback()
+            print("A"+ str(curr_lat)+ "lat, " + str(curr_lon)+"lon")
+            
+    elif (abs(curr_lat- latB)<= 0.0001000) and (abs(curr_lon- longB)<= 0.0001000):
+        if (status != "B"):
+            status = "B"
+            #time.sleep(5)
+            print("Spectrometer started at B")
+            callback()
+            print("B"+ str(curr_lat-latB)+ "lat, " + str(curr_lon-longB)+"lon")
+            
+    else:
+        if (status != "none"):
+            status = "none"
+            print("none" + str(curr_lat)+ "LAT" + str(curr_lon)+"LONG")
+
+N=0
+drone.close()
+while N==1:
+    print(drone.airspeed)
+    nextwaypoint = drone.commands.next
+    print ("Waypoint nowwwwwwwwwwwwwww " + str (nextwaypoint))
+    if (nextwaypoint == num_of_waypoints):
+        break
+    elif(nextwaypoint>0 and nextwaypoint <= num_of_waypoints):
+        print("inside" + str(nextwaypoint))
+        distance = distance_to_waypoint(nextwaypoint)
+        print("distance" + str (distance))
+        if (distance <= 1):
+            print("point" +str (nextwaypoint)+ "reached")         #spec.measure()
+#drone.close()
+print("done")
+
+
+
+
